@@ -1,0 +1,24 @@
+
+# Generated gammurc for test purposes
+[gammu]
+model = dummy
+connection = none
+port = /home/vincent/Gofood/gammu-1.42.0/build/tests/.gammu-dummy
+gammuloc = /dev/null
+logformat = textall
+logfile = /home/vincent/Gofood/gammu-1.42.0/build/tests/gammu.log
+
+[gammu2]
+model = dummy
+features = DISABLE_GETNEXT
+connection = none
+port = /home/vincent/Gofood/gammu-1.42.0/build/tests/.gammu-dummy-nonext
+gammuloc = /dev/null
+logformat = textall
+logfile = /home/vincent/Gofood/gammu-1.42.0/build/tests/gammu.log
+
+[gammu99]
+model = dummy
+connection = none
+port = /home/vincent/Gofood/gammu-1.42.0/build/tests/.gammu-dummy
+gammuloc = /dev/null

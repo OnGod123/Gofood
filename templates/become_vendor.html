@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Merchant | Vendor Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top left, #e0e7ff 0%, #f8fafc 40%, #f9fafb 100%);
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-radius: 1.5rem;
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+      padding: 2.5rem 3rem;
+      width: 100%;
+      max-width: 550px;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, #2563eb, #1e40af);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: #334155;
+      font-size: 0.95rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      background: #f1f5f9;
+      color: #1e293b;
+      box-shadow: inset 0 0 0 1px rgba(203, 213, 225, 0.6);
+    }
+
+    input:focus {
+      outline: none;
+      background: #fff;
+      box-shadow: 0 0 0 2px #3b82f6, 0 5px 12px rgba(59,130,246,0.15);
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+    }
+
+    .toggle input[type="checkbox"] {
+      appearance: none;
+      width: 40px;
+      height: 22px;
+      background: #cbd5e1;
+      border-radius: 20px;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+
+    .toggle input[type="checkbox"]::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      transition: all 0.3s ease;
+    }
+
+    .toggle input[type="checkbox"]:checked {
+      background: #2563eb;
+    }
+
+    .toggle input[type="checkbox"]:checked::before {
+      transform: translateX(18px);
+    }
+
+    .btn {
+      margin-top: 1rem;
+      background: linear-gradient(90deg, #3b82f6, #2563eb, #1d4ed8);
+      background-size: 200%;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 8px 16px rgba(37,99,235,0.25);
+    }
+
+    .btn:hover {
+      background-position: right center;
+      box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Create Merchant</h1>
+
+    <form id="merchantForm">
+      <div>
+        <label for="user_id">User ID</label>
+        <input type="number" id="user_id" placeholder="Enter user ID" required>
+      </div>
+
+      <div>
+        <label for="vendor_id">Vendor ID</label>
+        <input type="number" id="vendor_id" placeholder="Enter vendor ID" required>
+      </div>
+
+      <div>
+        <label for="password_hash">Password</label>
+        <input type="password" id="password_hash" placeholder="Enter password" required>
+      </div>
+
+      <div>
+        <label for="account_number">Account Number</label>
+        <input type="text" id="account_number" placeholder="Enter account number">
+      </div>
+
+      <div>
+        <label for="order_tracker">Order Tracker</label>
+        <input type="text" id="order_tracker" placeholder="Enter unique order tracker ID">
+      </div>
+
+      <label class="toggle">
+        <input type="checkbox" id="is_active">
+        <span>Active Merchant</span>
+      </label>
+
+      <button class="btn" type="submit">Create Merchant</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('merchantForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const data = {
+        user_id: document.getElementById('user_id').value,
+        vendor_id: document.getElementById('vendor_id').value,
+        password_hash: document.getElementById('password_hash').value,
+        account_number: document.getElementById('account_number').value,
+        order_tracker: document.getElementById('order_tracker').value,
+        is_active: document.getElementById('is_active').checked
+      };
+
+      console.log("Merchant JSON:", JSON.stringify(data, null, 2));
+      alert("Merchant created successfully (check console for JSON)");
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
+

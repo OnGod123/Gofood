@@ -1,0 +1,1759 @@
+The system is: Linux - 6.6.87.2-microsoft-standard-WSL2 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/3.22.1/CompilerIdC/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_badae/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_badae.dir/build.make CMakeFiles/cmTC_badae.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -v -o CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_badae.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_badae.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccDGUp1p.s
+GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 4011c2103cba78949d7e02d0f0047a3d
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_badae.dir/'
+ as -v --64 -o CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o /tmp/ccDGUp1p.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.'
+Linking C executable cmTC_badae
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_badae.dir/link.txt --verbose=1
+/usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o -o cmTC_badae 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_badae' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_badae.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD9YpfN.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_badae /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_badae' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_badae.'
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_badae/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_badae.dir/build.make CMakeFiles/cmTC_badae.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_badae.dir/']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_badae.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccDGUp1p.s]
+  ignore line: [GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/x86_64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 4011c2103cba78949d7e02d0f0047a3d]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_badae.dir/']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o /tmp/ccDGUp1p.s]
+  ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.']
+  ignore line: [Linking C executable cmTC_badae]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_badae.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o -o cmTC_badae ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04.2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-2Y5pKs/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_badae' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_badae.']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD9YpfN.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_badae /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccD9YpfN.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_badae] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
+    arg [CMakeFiles/cmTC_badae.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11] ==> [/usr/lib/gcc/x86_64-linux-gnu/11]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Determining if the strncasecmp exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b6516/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b6516.dir/build.make CMakeFiles/cmTC_b6516.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b6516.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_b6516.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_b6516
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b6516.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_b6516.dir/CheckSymbolExists.c.o -o cmTC_b6516 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncasecmp
+  return ((int*)(&strncasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcasecmp exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_436c7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_436c7.dir/build.make CMakeFiles/cmTC_436c7.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_436c7.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_436c7.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_436c7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_436c7.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_436c7.dir/CheckSymbolExists.c.o -o cmTC_436c7 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcasecmp
+  return ((int*)(&strcasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function strcasestr exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a0ea7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a0ea7.dir/build.make CMakeFiles/cmTC_a0ea7.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a0ea7.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strcasestr -o CMakeFiles/cmTC_a0ea7.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a0ea7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a0ea7.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strcasestr -rdynamic CMakeFiles/cmTC_a0ea7.dir/CheckFunctionExists.c.o -o cmTC_a0ea7 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function strchrnul exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ac917/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ac917.dir/build.make CMakeFiles/cmTC_ac917.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ac917.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strchrnul -o CMakeFiles/cmTC_ac917.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ac917
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ac917.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strchrnul -rdynamic CMakeFiles/cmTC_ac917.dir/CheckFunctionExists.c.o -o cmTC_ac917 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function strtoull exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_06205/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_06205.dir/build.make CMakeFiles/cmTC_06205.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_06205.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strtoull -o CMakeFiles/cmTC_06205.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_06205
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_06205.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strtoull -rdynamic CMakeFiles/cmTC_06205.dir/CheckFunctionExists.c.o -o cmTC_06205 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file dirent.h exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9827b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9827b.dir/build.make CMakeFiles/cmTC_9827b.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9827b.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_9827b.dir/CheckIncludeFile.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_9827b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9827b.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_9827b.dir/CheckIncludeFile.c.o -o cmTC_9827b 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/ioctl.h exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2004f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2004f.dir/build.make CMakeFiles/cmTC_2004f.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2004f.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_2004f.dir/CheckIncludeFile.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_2004f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2004f.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_2004f.dir/CheckIncludeFile.c.o -o cmTC_2004f 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/utsname.h exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_35b42/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_35b42.dir/build.make CMakeFiles/cmTC_35b42.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_35b42.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_35b42.dir/CheckIncludeFile.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_35b42
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_35b42.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_35b42.dir/CheckIncludeFile.c.o -o cmTC_35b42 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file unistd.h exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d46f4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d46f4.dir/build.make CMakeFiles/cmTC_d46f4.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d46f4.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_d46f4.dir/CheckIncludeFile.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d46f4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d46f4.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_d46f4.dir/CheckIncludeFile.c.o -o cmTC_d46f4 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file wchar.h exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4923a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4923a.dir/build.make CMakeFiles/cmTC_4923a.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4923a.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_4923a.dir/CheckIncludeFile.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_4923a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4923a.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_4923a.dir/CheckIncludeFile.c.o -o cmTC_4923a 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files wchar.h;wctype.h exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e720d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e720d.dir/build.make CMakeFiles/cmTC_e720d.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e720d.dir/HAVE_WCTYPE_H.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_e720d.dir/HAVE_WCTYPE_H.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CheckIncludeFiles/HAVE_WCTYPE_H.c
+Linking C executable cmTC_e720d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e720d.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_e720d.dir/HAVE_WCTYPE_H.c.o -o cmTC_e720d 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the iswspace exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1d278/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1d278.dir/build.make CMakeFiles/cmTC_1d278.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1d278.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_1d278.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_1d278
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1d278.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_1d278.dir/CheckSymbolExists.c.o -o cmTC_1d278 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <wchar.h>
+#include <wctype.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef iswspace
+  return ((int*)(&iswspace))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the towlower exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_baf63/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_baf63.dir/build.make CMakeFiles/cmTC_baf63.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_baf63.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_baf63.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_baf63
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_baf63.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_baf63.dir/CheckSymbolExists.c.o -o cmTC_baf63 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <wchar.h>
+#include <wctype.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef towlower
+  return ((int*)(&towlower))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the include file strings.h exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8b1ee/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8b1ee.dir/build.make CMakeFiles/cmTC_8b1ee.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8b1ee.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_8b1ee.dir/CheckIncludeFile.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_8b1ee
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b1ee.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_8b1ee.dir/CheckIncludeFile.c.o -o cmTC_8b1ee 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function scandir exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6bd8b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6bd8b.dir/build.make CMakeFiles/cmTC_6bd8b.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6bd8b.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=scandir -o CMakeFiles/cmTC_6bd8b.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6bd8b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6bd8b.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=scandir -rdynamic CMakeFiles/cmTC_6bd8b.dir/CheckFunctionExists.c.o -o cmTC_6bd8b 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function alphasort exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e259a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e259a.dir/build.make CMakeFiles/cmTC_e259a.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e259a.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=alphasort -o CMakeFiles/cmTC_e259a.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e259a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e259a.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=alphasort -rdynamic CMakeFiles/cmTC_e259a.dir/CheckFunctionExists.c.o -o cmTC_e259a 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the getopt exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a701e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a701e.dir/build.make CMakeFiles/cmTC_a701e.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a701e.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_a701e.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a701e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a701e.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_a701e.dir/CheckSymbolExists.c.o -o cmTC_a701e 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getopt
+  return ((int*)(&getopt))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getopt_long exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_907a5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_907a5.dir/build.make CMakeFiles/cmTC_907a5.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_907a5.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_907a5.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_907a5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_907a5.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_907a5.dir/CheckSymbolExists.c.o -o cmTC_907a5 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <getopt.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getopt_long
+  return ((int*)(&getopt_long))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the daemon exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cc92b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cc92b.dir/build.make CMakeFiles/cmTC_cc92b.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cc92b.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_cc92b.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_cc92b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc92b.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_cc92b.dir/CheckSymbolExists.c.o -o cmTC_cc92b 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef daemon
+  return ((int*)(&daemon))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the kill exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ebfaf/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ebfaf.dir/build.make CMakeFiles/cmTC_ebfaf.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ebfaf.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_ebfaf.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ebfaf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ebfaf.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_ebfaf.dir/CheckSymbolExists.c.o -o cmTC_ebfaf 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <signal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef kill
+  return ((int*)(&kill))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sigtimedwait exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2888d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2888d.dir/build.make CMakeFiles/cmTC_2888d.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2888d.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_2888d.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_2888d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2888d.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_2888d.dir/CheckSymbolExists.c.o -o cmTC_2888d 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <signal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sigtimedwait
+  return ((int*)(&sigtimedwait))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpwnam exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0043a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0043a.dir/build.make CMakeFiles/cmTC_0043a.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0043a.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_0043a.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_0043a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0043a.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_0043a.dir/CheckSymbolExists.c.o -o cmTC_0043a 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pwd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpwnam
+  return ((int*)(&getpwnam))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getgrnam exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3fba6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3fba6.dir/build.make CMakeFiles/cmTC_3fba6.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3fba6.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_3fba6.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_3fba6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3fba6.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_3fba6.dir/CheckSymbolExists.c.o -o cmTC_3fba6 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <grp.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getgrnam
+  return ((int*)(&getgrnam))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpwuid exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3d7e2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3d7e2.dir/build.make CMakeFiles/cmTC_3d7e2.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3d7e2.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_3d7e2.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_3d7e2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d7e2.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_3d7e2.dir/CheckSymbolExists.c.o -o cmTC_3d7e2 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pwd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpwuid
+  return ((int*)(&getpwuid))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getuid exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5574e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5574e.dir/build.make CMakeFiles/cmTC_5574e.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5574e.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_5574e.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5574e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5574e.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_5574e.dir/CheckSymbolExists.c.o -o cmTC_5574e 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getuid
+  return ((int*)(&getuid))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the initgroups exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6159d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6159d.dir/build.make CMakeFiles/cmTC_6159d.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6159d.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_6159d.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_6159d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6159d.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_6159d.dir/CheckSymbolExists.c.o -o cmTC_6159d 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <grp.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef initgroups
+  return ((int*)(&initgroups))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setuid exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_dedfc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_dedfc.dir/build.make CMakeFiles/cmTC_dedfc.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dedfc.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_dedfc.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_dedfc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dedfc.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_dedfc.dir/CheckSymbolExists.c.o -o cmTC_dedfc 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setuid
+  return ((int*)(&setuid))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setgid exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_97021/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_97021.dir/build.make CMakeFiles/cmTC_97021.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_97021.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_97021.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_97021
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97021.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_97021.dir/CheckSymbolExists.c.o -o cmTC_97021 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setgid
+  return ((int*)(&setgid))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the SIGHUP exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0b075/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0b075.dir/build.make CMakeFiles/cmTC_0b075.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0b075.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_0b075.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_0b075
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0b075.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_0b075.dir/CheckSymbolExists.c.o -o cmTC_0b075 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <signal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef SIGHUP
+  return ((int*)(&SIGHUP))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the SIGUSR1 exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_578fe/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_578fe.dir/build.make CMakeFiles/cmTC_578fe.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_578fe.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_578fe.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_578fe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_578fe.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_578fe.dir/CheckSymbolExists.c.o -o cmTC_578fe 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <signal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef SIGUSR1
+  return ((int*)(&SIGUSR1))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the SIGUSR2 exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c33a7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c33a7.dir/build.make CMakeFiles/cmTC_c33a7.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c33a7.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_c33a7.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_c33a7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c33a7.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_c33a7.dir/CheckSymbolExists.c.o -o cmTC_c33a7 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <signal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef SIGUSR2
+  return ((int*)(&SIGUSR2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the dup exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_279f7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_279f7.dir/build.make CMakeFiles/cmTC_279f7.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_279f7.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_279f7.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_279f7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_279f7.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_279f7.dir/CheckSymbolExists.c.o -o cmTC_279f7 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef dup
+  return ((int*)(&dup))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpid exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2bf79/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2bf79.dir/build.make CMakeFiles/cmTC_2bf79.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2bf79.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_2bf79.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_2bf79
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2bf79.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_2bf79.dir/CheckSymbolExists.c.o -o cmTC_2bf79 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpid
+  return ((int*)(&getpid))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpass exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_53e27/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_53e27.dir/build.make CMakeFiles/cmTC_53e27.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_53e27.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_53e27.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_53e27
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53e27.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_53e27.dir/CheckSymbolExists.c.o -o cmTC_53e27 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpass
+  return ((int*)(&getpass))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the alarm exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_df3e0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_df3e0.dir/build.make CMakeFiles/cmTC_df3e0.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_df3e0.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_df3e0.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_df3e0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_df3e0.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_df3e0.dir/CheckSymbolExists.c.o -o cmTC_df3e0 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef alarm
+  return ((int*)(&alarm))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the shmget exist passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6580a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6580a.dir/build.make CMakeFiles/cmTC_6580a.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6580a.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_6580a.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_6580a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6580a.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_6580a.dir/CheckSymbolExists.c.o -o cmTC_6580a 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/shm.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef shmget
+  return ((int*)(&shmget))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_STRPTIME succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_28178/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_28178.dir/build.make CMakeFiles/cmTC_28178.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_28178.dir/src.c.o
+/usr/bin/cc -DHAVE_STRPTIME   -o CMakeFiles/cmTC_28178.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+In file included from /usr/include/time.h:25,
+                 from /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c:4:
+/usr/include/features.h:194:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+  194 | # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+      |   ^~~~~~~
+Linking C executable cmTC_28178
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28178.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_28178.dir/src.c.o -o cmTC_28178 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#define _XOPEN_SOURCE
+#define _BSD_SOURCE
+#include <time.h>
+
+int main(void) {
+    struct tm timestruct;
+    strptime("11:22", "%H:%M", &timestruct);
+    return 0;
+}
+Performing C SOURCE FILE Test HAVE_SYSLOG succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fb974/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fb974.dir/build.make CMakeFiles/cmTC_fb974.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fb974.dir/src.c.o
+/usr/bin/cc -DHAVE_SYSLOG   -o CMakeFiles/cmTC_fb974.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_fb974
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb974.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_fb974.dir/src.c.o -o cmTC_fb974 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <stdio.h>
+#include <syslog.h>
+#include <stdarg.h>
+
+int main(void) {
+    syslog(LOG_NOTICE, "aaa %d", 1);
+    return 0;
+}
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bab79/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bab79.dir/build.make CMakeFiles/cmTC_bab79.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bab79.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_bab79.dir/CheckIncludeFile.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_bab79
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bab79.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_bab79.dir/CheckIncludeFile.c.o -o cmTC_bab79 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_47136/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_47136.dir/build.make CMakeFiles/cmTC_47136.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_47136.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_47136.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_47136
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47136.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_47136.dir/src.c.o -o cmTC_47136 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function dgettext exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fd597/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fd597.dir/build.make CMakeFiles/cmTC_fd597.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fd597.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=dgettext -o CMakeFiles/cmTC_fd597.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘dgettext’; expected ‘char *(const char *, const char *)’ [-Wbuiltin-declaration-mismatch]
+/usr/share/cmake-3.22/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+    7 |   CHECK_FUNCTION_EXISTS(void);
+      |   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_fd597
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd597.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=dgettext -rdynamic CMakeFiles/cmTC_fd597.dir/CheckFunctionExists.c.o -o cmTC_fd597 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test ICONV_HAVE_WERROR succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_20d62/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_20d62.dir/build.make CMakeFiles/cmTC_20d62.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_20d62.dir/src.c.o
+/usr/bin/cc -DICONV_HAVE_WERROR  -Werror -o CMakeFiles/cmTC_20d62.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_20d62
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_20d62.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_20d62.dir/src.c.o -o cmTC_20d62  -lc 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e937f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e937f.dir/build.make CMakeFiles/cmTC_e937f.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e937f.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_e937f.dir/CheckIncludeFile.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_e937f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e937f.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_e937f.dir/CheckIncludeFile.c.o -o cmTC_e937f 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1d514/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1d514.dir/build.make CMakeFiles/cmTC_1d514.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1d514.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_1d514.dir/CheckIncludeFile.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_1d514
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1d514.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_1d514.dir/CheckIncludeFile.c.o -o cmTC_1d514 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_24820/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_24820.dir/build.make CMakeFiles/cmTC_24820.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_24820.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_24820.dir/CheckIncludeFile.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_24820
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24820.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_24820.dir/CheckIncludeFile.c.o -o cmTC_24820 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of wchar_t passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d9c0f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d9c0f.dir/build.make CMakeFiles/cmTC_d9c0f.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d9c0f.dir/WCHAR_T.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_d9c0f.dir/WCHAR_T.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CheckTypeSize/WCHAR_T.c
+Linking C executable cmTC_d9c0f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9c0f.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_d9c0f.dir/WCHAR_T.c.o -o cmTC_d9c0f 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of wint_t passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_088a4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_088a4.dir/build.make CMakeFiles/cmTC_088a4.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_088a4.dir/WINT_T.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_088a4.dir/WINT_T.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CheckTypeSize/WINT_T.c
+Linking C executable cmTC_088a4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_088a4.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_088a4.dir/WINT_T.c.o -o cmTC_088a4 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of ssize_t passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1eee0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1eee0.dir/build.make CMakeFiles/cmTC_1eee0.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1eee0.dir/SSIZE_T.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_1eee0.dir/SSIZE_T.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CheckTypeSize/SSIZE_T.c
+Linking C executable cmTC_1eee0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1eee0.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_1eee0.dir/SSIZE_T.c.o -o cmTC_1eee0 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of intptr_t passed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ea138/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ea138.dir/build.make CMakeFiles/cmTC_ea138.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ea138.dir/INTPTR_T.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_ea138.dir/INTPTR_T.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CheckTypeSize/INTPTR_T.c
+Linking C executable cmTC_ea138
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea138.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_ea138.dir/INTPTR_T.c.o -o cmTC_ea138 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test HAVE_MACRO_FUNCTION succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9bdae/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9bdae.dir/build.make CMakeFiles/cmTC_9bdae.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9bdae.dir/src.c.o
+/usr/bin/cc -DHAVE_MACRO_FUNCTION   -o CMakeFiles/cmTC_9bdae.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_9bdae
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9bdae.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_9bdae.dir/src.c.o -o cmTC_9bdae 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <stdio.h>
+
+int main(void) {
+    printf( __FUNCTION__);
+    return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_TM_TM_ZONE succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4800d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4800d.dir/build.make CMakeFiles/cmTC_4800d.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4800d.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_TM_TM_ZONE   -o CMakeFiles/cmTC_4800d.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_4800d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4800d.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_4800d.dir/src.c.o -o cmTC_4800d 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <time.h>
+
+int main(void) {
+    struct tm tm;
+    tm.tm_zone;
+    return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_DAYLIGHT succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2a3df/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2a3df.dir/build.make CMakeFiles/cmTC_2a3df.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2a3df.dir/src.c.o
+/usr/bin/cc -DHAVE_DAYLIGHT   -o CMakeFiles/cmTC_2a3df.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_2a3df
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2a3df.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_2a3df.dir/src.c.o -o cmTC_2a3df 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <time.h>
+
+int main(void) {
+    struct tm tm;
+	tm.tm_isdst	= daylight;
+    return 0;
+}
+
+Performing C SOURCE FILE Test COMPILER_HAS_O2 succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_658bd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_658bd.dir/build.make CMakeFiles/cmTC_658bd.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_658bd.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_O2  -O2 -o CMakeFiles/cmTC_658bd.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_658bd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_658bd.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_658bd.dir/src.c.o -o cmTC_658bd 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WALL succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e4906/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e4906.dir/build.make CMakeFiles/cmTC_e4906.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e4906.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WALL  -O2    -Wall -o CMakeFiles/cmTC_e4906.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_e4906
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e4906.dir/link.txt --verbose=1
+/usr/bin/cc  -O2  -rdynamic CMakeFiles/cmTC_e4906.dir/src.c.o -o cmTC_e4906 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WERROR_IMPLICIT_FUNCTION_DECLARATION succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d8207/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d8207.dir/build.make CMakeFiles/cmTC_d8207.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8207.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WERROR_IMPLICIT_FUNCTION_DECLARATION  -O2 -Wall    -Werror-implicit-function-declaration -o CMakeFiles/cmTC_d8207.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d8207
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8207.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall  -rdynamic CMakeFiles/cmTC_d8207.dir/src.c.o -o cmTC_d8207 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WNO_DEPRECATED_DECLARATIONS succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_76a43/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_76a43.dir/build.make CMakeFiles/cmTC_76a43.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_76a43.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WNO_DEPRECATED_DECLARATIONS  -O2 -Wall -Werror-implicit-function-declaration    -Wno-deprecated-declarations -o CMakeFiles/cmTC_76a43.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_76a43
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76a43.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration  -rdynamic CMakeFiles/cmTC_76a43.dir/src.c.o -o cmTC_76a43 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WDECLARATION_AFTER_STATEMENT succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_af652/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_af652.dir/build.make CMakeFiles/cmTC_af652.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_af652.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WDECLARATION_AFTER_STATEMENT  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations    -Wdeclaration-after-statement -o CMakeFiles/cmTC_af652.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_af652
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_af652.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations  -rdynamic CMakeFiles/cmTC_af652.dir/src.c.o -o cmTC_af652 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WPOINTER_ARITH succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d0141/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d0141.dir/build.make CMakeFiles/cmTC_d0141.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d0141.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WPOINTER_ARITH  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement    -Wpointer-arith -o CMakeFiles/cmTC_d0141.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d0141
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0141.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement  -rdynamic CMakeFiles/cmTC_d0141.dir/src.c.o -o cmTC_d0141 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WFLOAT_EQUAL succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_72995/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_72995.dir/build.make CMakeFiles/cmTC_72995.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_72995.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WFLOAT_EQUAL  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith    -Wfloat-equal -o CMakeFiles/cmTC_72995.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_72995
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72995.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith  -rdynamic CMakeFiles/cmTC_72995.dir/src.c.o -o cmTC_72995 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WBAD_FUNCTION_CAST succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9853d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9853d.dir/build.make CMakeFiles/cmTC_9853d.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9853d.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WBAD_FUNCTION_CAST  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal    -Wbad-function-cast -o CMakeFiles/cmTC_9853d.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_9853d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9853d.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal  -rdynamic CMakeFiles/cmTC_9853d.dir/src.c.o -o cmTC_9853d 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WMISSING_FORMAT_ATTRIBUTE succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_72fd2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_72fd2.dir/build.make CMakeFiles/cmTC_72fd2.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_72fd2.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WMISSING_FORMAT_ATTRIBUTE  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast    -Wmissing-format-attribute -o CMakeFiles/cmTC_72fd2.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_72fd2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72fd2.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast  -rdynamic CMakeFiles/cmTC_72fd2.dir/src.c.o -o cmTC_72fd2 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WMISSING_NORETURN succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5f727/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5f727.dir/build.make CMakeFiles/cmTC_5f727.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5f727.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WMISSING_NORETURN  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute    -Wmissing-noreturn -o CMakeFiles/cmTC_5f727.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5f727
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5f727.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute  -rdynamic CMakeFiles/cmTC_5f727.dir/src.c.o -o cmTC_5f727 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WSHADOW succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1e236/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1e236.dir/build.make CMakeFiles/cmTC_1e236.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1e236.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WSHADOW  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn    -Wshadow -o CMakeFiles/cmTC_1e236.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_1e236
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1e236.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn  -rdynamic CMakeFiles/cmTC_1e236.dir/src.c.o -o cmTC_1e236 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WSTRICT_PROTOTYPES succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0de0e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0de0e.dir/build.make CMakeFiles/cmTC_0de0e.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0de0e.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WSTRICT_PROTOTYPES  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow    -Wstrict-prototypes -o CMakeFiles/cmTC_0de0e.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_0de0e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0de0e.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow  -rdynamic CMakeFiles/cmTC_0de0e.dir/src.c.o -o cmTC_0de0e 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WSIGN_COMPARE succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e6b08/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e6b08.dir/build.make CMakeFiles/cmTC_e6b08.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e6b08.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WSIGN_COMPARE  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes    -Wsign-compare -o CMakeFiles/cmTC_e6b08.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_e6b08
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e6b08.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes  -rdynamic CMakeFiles/cmTC_e6b08.dir/src.c.o -o cmTC_e6b08 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WUNREACHABLE_CODE succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_44efc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_44efc.dir/build.make CMakeFiles/cmTC_44efc.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_44efc.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WUNREACHABLE_CODE  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare    -Wunreachable-code -o CMakeFiles/cmTC_44efc.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_44efc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_44efc.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare  -rdynamic CMakeFiles/cmTC_44efc.dir/src.c.o -o cmTC_44efc 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WNO_ERROR_UNREACHABLE_CODE succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_90f12/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_90f12.dir/build.make CMakeFiles/cmTC_90f12.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_90f12.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WNO_ERROR_UNREACHABLE_CODE  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code    -Wno-error=unreachable-code -o CMakeFiles/cmTC_90f12.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_90f12
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90f12.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code  -rdynamic CMakeFiles/cmTC_90f12.dir/src.c.o -o cmTC_90f12 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WNO_POINTER_SIGN succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6c460/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6c460.dir/build.make CMakeFiles/cmTC_6c460.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6c460.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WNO_POINTER_SIGN  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code    -Wno-pointer-sign -o CMakeFiles/cmTC_6c460.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_6c460
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c460.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code  -rdynamic CMakeFiles/cmTC_6c460.dir/src.c.o -o cmTC_6c460 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WWRITE_STRINGS succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_91100/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_91100.dir/build.make CMakeFiles/cmTC_91100.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_91100.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WWRITE_STRINGS  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign    -Wwrite-strings -o CMakeFiles/cmTC_91100.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_91100
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91100.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign  -rdynamic CMakeFiles/cmTC_91100.dir/src.c.o -o cmTC_91100 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WREDUNDANT_DECLS succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2d1ab/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2d1ab.dir/build.make CMakeFiles/cmTC_2d1ab.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2d1ab.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WREDUNDANT_DECLS  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings    -Wredundant-decls -o CMakeFiles/cmTC_2d1ab.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_2d1ab
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d1ab.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings  -rdynamic CMakeFiles/cmTC_2d1ab.dir/src.c.o -o cmTC_2d1ab 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WFORMAT_2 succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_361e4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_361e4.dir/build.make CMakeFiles/cmTC_361e4.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_361e4.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WFORMAT_2  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls    -Wformat=2 -o CMakeFiles/cmTC_361e4.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_361e4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_361e4.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls  -rdynamic CMakeFiles/cmTC_361e4.dir/src.c.o -o cmTC_361e4 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WNO_FORMAT_Y2K succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_08fb2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_08fb2.dir/build.make CMakeFiles/cmTC_08fb2.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_08fb2.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WNO_FORMAT_Y2K  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2    -Wno-format-y2k -o CMakeFiles/cmTC_08fb2.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_08fb2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_08fb2.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2  -rdynamic CMakeFiles/cmTC_08fb2.dir/src.c.o -o cmTC_08fb2 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WNO_FORMAT_NONLITERAL succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d6acd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d6acd.dir/build.make CMakeFiles/cmTC_d6acd.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d6acd.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WNO_FORMAT_NONLITERAL  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k    -Wno-format-nonliteral -o CMakeFiles/cmTC_d6acd.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d6acd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d6acd.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k  -rdynamic CMakeFiles/cmTC_d6acd.dir/src.c.o -o cmTC_d6acd 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WEXTRA succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_63bd9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_63bd9.dir/build.make CMakeFiles/cmTC_63bd9.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_63bd9.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WEXTRA  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral    -Wextra -o CMakeFiles/cmTC_63bd9.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_63bd9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_63bd9.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral  -rdynamic CMakeFiles/cmTC_63bd9.dir/src.c.o -o cmTC_63bd9 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WUNUSED_BUT_SET_VARIABLE succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e3881/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e3881.dir/build.make CMakeFiles/cmTC_e3881.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e3881.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WUNUSED_BUT_SET_VARIABLE  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra    -Wunused-but-set-variable -o CMakeFiles/cmTC_e3881.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_e3881
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e3881.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra  -rdynamic CMakeFiles/cmTC_e3881.dir/src.c.o -o cmTC_e3881 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_WNO_UNUSED_PARAMETER succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_742c5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_742c5.dir/build.make CMakeFiles/cmTC_742c5.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_742c5.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_WNO_UNUSED_PARAMETER  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra -Wunused-but-set-variable    -Wno-unused-parameter -o CMakeFiles/cmTC_742c5.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_742c5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_742c5.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra -Wunused-but-set-variable  -rdynamic CMakeFiles/cmTC_742c5.dir/src.c.o -o cmTC_742c5 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_FSTACK_PROTECTOR succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_50bbe/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_50bbe.dir/build.make CMakeFiles/cmTC_50bbe.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_50bbe.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_FSTACK_PROTECTOR  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra -Wunused-but-set-variable -Wno-unused-parameter    -fstack-protector -o CMakeFiles/cmTC_50bbe.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_50bbe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_50bbe.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra -Wunused-but-set-variable -Wno-unused-parameter  -rdynamic CMakeFiles/cmTC_50bbe.dir/src.c.o -o cmTC_50bbe 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test LINKER_HAS_WL__ZRELRO succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b2278/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b2278.dir/build.make CMakeFiles/cmTC_b2278.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b2278.dir/src.c.o
+/usr/bin/cc -DLINKER_HAS_WL__ZRELRO  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra -Wunused-but-set-variable -Wno-unused-parameter -fstack-protector -Wl,-zrelro   -Wl,-zrelro -o CMakeFiles/cmTC_b2278.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_b2278
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b2278.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra -Wunused-but-set-variable -Wno-unused-parameter -fstack-protector -Wl,-zrelro -rdynamic CMakeFiles/cmTC_b2278.dir/src.c.o -o cmTC_b2278 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test LINKER_HAS_WL___AS_NEEDED succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6d6de/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6d6de.dir/build.make CMakeFiles/cmTC_6d6de.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6d6de.dir/src.c.o
+/usr/bin/cc -DLINKER_HAS_WL___AS_NEEDED  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra -Wunused-but-set-variable -Wno-unused-parameter -fstack-protector -Wl,--as-needed   -Wl,--as-needed -o CMakeFiles/cmTC_6d6de.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_6d6de
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6d6de.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra -Wunused-but-set-variable -Wno-unused-parameter -fstack-protector -Wl,--as-needed -rdynamic CMakeFiles/cmTC_6d6de.dir/src.c.o -o cmTC_6d6de 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}
+Performing C SOURCE FILE Test COMPILER_HAS_FPIC succeeded with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_76dbb/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_76dbb.dir/build.make CMakeFiles/cmTC_76dbb.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_76dbb.dir/src.c.o
+/usr/bin/cc -DCOMPILER_HAS_FPIC  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra -Wunused-but-set-variable -Wno-unused-parameter -fstack-protector    -fPIC -o CMakeFiles/cmTC_76dbb.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_76dbb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76dbb.dir/link.txt --verbose=1
+/usr/bin/cc  -O2 -Wall -Werror-implicit-function-declaration -Wno-deprecated-declarations -Wdeclaration-after-statement -Wpointer-arith -Wfloat-equal -Wbad-function-cast -Wmissing-format-attribute -Wmissing-noreturn -Wshadow -Wstrict-prototypes -Wsign-compare -Wunreachable-code -Wno-error=unreachable-code -Wno-pointer-sign -Wwrite-strings -Wredundant-decls -Wformat=2 -Wno-format-y2k -Wno-format-nonliteral -Wextra -Wunused-but-set-variable -Wno-unused-parameter -fstack-protector  -rdynamic CMakeFiles/cmTC_76dbb.dir/src.c.o -o cmTC_76dbb 
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0;}

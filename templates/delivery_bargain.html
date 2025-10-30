@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bargain Delivery Fee</title>
+  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+</head>
+<body>
+  <h2>Delivery #{{ delivery_id }}</h2>
+  <input type="number" id="fee" placeholder="Enter your offer">
+  <button id="send">Send Offer</button>
+
+  <div id="updates"></div>
+
+  <script>
+    const socket = io();
+    const delivery_id = "{{ delivery_id }}";
+
+    socket.emit("join_bargain", {delivery_id});
+
+    document.getElementById("send").onclick = function() {
+      const fee = parseFloat(document.getElementById("fee").value);
+      socket.emit("offer_fee", {delivery_id, fee});
+    };
+
+    socket.on("fee_update", data => {
+      document.getElementById("updates").innerHTML += `<p>New offer: ${data.new_fee}</p>`;
+    });
+  </script>
+</body>
+</html>
+

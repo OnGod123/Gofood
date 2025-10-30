@@ -1,0 +1,148 @@
+# cmake <http://www.cmake.org> test file for SMSD
+# Copyright (c) 2007 - 2018 Michal Cihar
+# vim: expandtab sw=4 ts=4 sts=4 ft=cmake:
+
+if (WITH_BACKUP)
+    set(PSQL_HOST 127.0.0.1 CACHE STRING "Host to use for PostgreSQL tests")
+    set(PSQL_DATABASE smsd CACHE STRING "Database to use for PostgreSQL tests")
+    set(PSQL_USER smsd CACHE STRING "User to use for PostgreSQL tests")
+    set(PSQL_PASSWORD smsd CACHE STRING "Password to use for PostgreSQL tests")
+
+    set(MYSQL_HOST 127.0.0.1 CACHE STRING "Host to use for MySQL tests")
+    set(MYSQL_DATABASE smsd CACHE STRING "Database to use for MySQL tests")
+    set(MYSQL_USER smsd CACHE STRING "User to use for MySQL tests")
+    set(MYSQL_PASSWORD smsd CACHE STRING "Password to use for MySQL tests")
+
+    set(ODBC_DSN smsd CACHE STRING "ODBC data source name to use for MySQL tests")
+
+    configure_file ("${CMAKE_CURRENT_SOURCE_DIR}/test-smsd.sh.in" "${CMAKE_CURRENT_BINARY_DIR}/test-smsd.sh" ESCAPE_QUOTES)
+    configure_file ("${CMAKE_CURRENT_SOURCE_DIR}/test-smsd-files-include.sh.in" "${CMAKE_CURRENT_BINARY_DIR}/test-smsd-files-include.sh" ESCAPE_QUOTES)
+
+    macro(smsd_testsuite _driver)
+        # This test tests some functionality and setups environment
+        add_test(NAME "smsd-${_driver}" COMMAND "${SH_BIN}" "${CMAKE_CURRENT_BINARY_DIR}/test-smsd.sh" "${_driver}" "$<TARGET_FILE:gammu-smsd>" "$<TARGET_FILE:gammu-smsd-inject>" "$<TARGET_FILE:gammu-smsd-monitor>")
+        set_tests_properties("smsd-${_driver}" PROPERTIES
+            FAIL_REGULAR_EXPRESSION "ERROR: ;ODBC diagnostics;DBI error ([^5]:|[0-9][^:]);Wrong;Process finished successfully;Process failed with exit status [^4]"
+            )
+
+        add_test(NAME "smsd-inject-${_driver}" COMMAND gammu-smsd-inject -c "${CMAKE_CURRENT_BINARY_DIR}/smsd-test-${_driver}/.smsdrc" TEXT 123465 -text "Lorem ipsum.")
+        set_tests_properties("smsd-inject-${_driver}" PROPERTIES
+            FAIL_REGULAR_EXPRESSION "DBI error;SQL failed;ODBC diagnostics"
+            )
+        add_test(NAME "smsd-inject-ussd-${_driver}" COMMAND gammu-smsd-inject -c "${CMAKE_CURRENT_BINARY_DIR}/smsd-test-${_driver}/.smsdrc" USSD "*127*1#")
+        set_tests_properties("smsd-inject-ussd-${_driver}" PROPERTIES
+            FAIL_REGULAR_EXPRESSION "DBI error;SQL failed;ODBC diagnostics"
+            )
+        add_test(NAME "smsd-inject-long-${_driver}" COMMAND gammu-smsd-inject -c "${CMAKE_CURRENT_BINARY_DIR}/smsd-test-${_driver}/.smsdrc" EMS 123465 -text "Mqukqirip ya konej eqniu rejropocejor hugiygydewl tfej nrupxujob xuemymiyliralj. Te tvyjuh qaxumur ibewfoiws zuucoz tdygu gelum L ejqigqesykl kya jdytbezy ucixh mqudemiywty nzihriduwlo yxylyujvghpv. Tiekoohunl dloijoda qelejocewu bfe bxuahadempivog. Ev mfegijox vleinley ewig qihopqu fafozmuvipc ernogtipeq acuoclzyv m poujhyerbjpipc vyq. Xty ljietenea ypep ti dik ela jozmyihipup xopujoqyjaw jojyuhietry mexykpih ysec yum zyhniet dezjiyup nuyryfsohnir Zeyoekemdoj tayqgh. Xvujuxy gysun dahyfecpetk uziyecz jogovxi fbypexsotn exymnomeatd ayiostiyvoxfy iqilo redvejf gfeypavlvaqu vfyjonytbug rgyxn siuybmulijub bxu xewz qisubevumxyzk ufuylehyzc. Nse xobq dfolizygqysj t bvowsyhyhyemim ovutpapeaempye giuuwbib.")
+        set_tests_properties("smsd-inject-long-${_driver}" PROPERTIES
+            FAIL_REGULAR_EXPRESSION "DBI error;SQL failed;ODBC diagnostics"
+            )
+        if ("${_driver}" STREQUAL "null")
+            if (WIN32 OR HAVE_ALARM)
+                add_test(NAME "smsd-daemon-${_driver}" COMMAND gammu-smsd -c "${CMAKE_CURRENT_BINARY_DIR}/smsd-test-${_driver}/.smsdrc" -X 3)
+                set_tests_properties("smsd-daemon-${_driver}" PROPERTIES
+                    FAIL_REGULAR_EXPRESSION "DBI error;SQL failed;ODBC diagnostics"
+                    )
+            endif (WIN32 OR HAVE_ALARM)
+            if (HAVE_ALARM AND HAVE_KILL)
+                add_test(NAME "smsd-daemon-${_driver}-pid" COMMAND gammu-smsd -c "${CMAKE_CURRENT_BINARY_DIR}/smsd-test-${_driver}/.smsdrc" -X 3 -p ${CMAKE_CURRENT_BINARY_DIR}/smsd-test-${_driver}/smsd.pid)
+            endif()
+            if (HAVE_ALARM AND HAVE_SETGID AND HAVE_GETPWNAM AND HAVE_GETGRNAM AND HAVE_SETUID AND HAVE_INITGROUPS)
+                exec_program(id ARGS -g OUTPUT_VARIABLE MY_GROUP)
+                add_test(NAME "smsd-daemon-${_driver}-gid" COMMAND gammu-smsd -c "${CMAKE_CURRENT_BINARY_DIR}/smsd-test-${_driver}/.smsdrc" -X 3 -G ${MY_GROUP})
+                exec_program(id ARGS -gn OUTPUT_VARIABLE MY_GROUP_NAME)
+                add_test(NAME "smsd-daemon-${_driver}-gid-name" COMMAND gammu-smsd -c "${CMAKE_CURRENT_BINARY_DIR}/smsd-test-${_driver}/.smsdrc" -X 3 -G ${MY_GROUP_NAME})
+            endif()
+        endif()
+    endmacro(smsd_testsuite _driver)
+
+    if (LIBDBI_FOUND AND SH_BIN AND SQLITE_BIN AND SED_BIN)
+        smsd_testsuite("dbi-sqlite3")
+    endif (LIBDBI_FOUND AND SH_BIN AND SQLITE_BIN AND SED_BIN)
+
+    if (SH_BIN)
+        smsd_testsuite("files-unicode")
+        smsd_testsuite("files-standard")
+        smsd_testsuite("files-detail")
+        smsd_testsuite("null")
+    endif (SH_BIN)
+
+    if (MYSQL_TESTING)
+        if (MYSQL_BIN)
+            if (MYSQL_FOUND)
+                smsd_testsuite("mysql")
+            endif (MYSQL_FOUND)
+            if (LIBDBI_FOUND)
+                smsd_testsuite("dbi-mysql")
+            endif (LIBDBI_FOUND)
+            if (ODBC_TESTING)
+                if (ODBC_FOUND)
+                    smsd_testsuite("odbc")
+                endif (ODBC_FOUND)
+            endif (ODBC_TESTING)
+        else()
+            message("MySQL tests disabled, mysql program not found")
+        endif()
+    endif (MYSQL_TESTING)
+
+    if (PSQL_TESTING)
+        if (PSQL_BIN)
+            if (POSTGRES_FOUND)
+                smsd_testsuite("pgsql")
+            endif (POSTGRES_FOUND)
+            if (LIBDBI_FOUND)
+                smsd_testsuite("dbi-pgsql")
+            endif (LIBDBI_FOUND)
+        else()
+            message("PostgreSQL tests disabled, psql program not found")
+        endif()
+    endif (PSQL_TESTING)
+
+    if (SH_BIN)
+        add_test(NAME "smsd-files-include-unicode" COMMAND "${SH_BIN}" "${CMAKE_CURRENT_BINARY_DIR}/test-smsd-files-include.sh" unicode "$<TARGET_FILE:gammu-smsd>" "$<TARGET_FILE:gammu-smsd-inject>" "$<TARGET_FILE:gammu-smsd-monitor>")
+        set_tests_properties("smsd-files-include-unicode" PROPERTIES
+            PASS_REGULAR_EXPRESSION ".999999999999999.994299429942994.4.3.0.100.42"
+            FAIL_REGULAR_EXPRESSION "ERROR: ;Wrong;Process failed with exit status"
+            )
+    endif (SH_BIN)
+
+    foreach (PROGRAM gammu-smsd gammu-smsd-monitor gammu-smsd-inject)
+        add_test(NAME ${PROGRAM}-help COMMAND ${PROGRAM} -h)
+        add_test(NAME ${PROGRAM}-version COMMAND ${PROGRAM} -v)
+        set_tests_properties(${PROGRAM}-version PROPERTIES
+            PASS_REGULAR_EXPRESSION "${GAMMU_VERSION}"
+            )
+        add_test(NAME ${PROGRAM}-fail-long COMMAND ${PROGRAM} --nonsense)
+        set_tests_properties(
+            ${PROGRAM}-fail-long
+            PROPERTIES WILL_FAIL TRUE)
+        add_test(NAME ${PROGRAM}-fail COMMAND ${PROGRAM} -W)
+        set_tests_properties(
+            ${PROGRAM}-fail
+            PROPERTIES WILL_FAIL TRUE)
+    endforeach (PROGRAM gammu-smsd gammu-smsd-monitor gammu-smsd-inject)
+
+    if (WIN32)
+        # Uninstall without install
+        add_test(NAME gammu-smsd-uninstall-eventlog-fail COMMAND gammu-smsd -E)
+        set_tests_properties(gammu-smsd-uninstall-eventlog-fail PROPERTIES WILL_FAIL TRUE)
+
+        # Install + Uninstall
+        add_test(NAME gammu-smsd-install-eventlog COMMAND gammu-smsd -e)
+        add_test(NAME gammu-smsd-uninstall-eventlog COMMAND gammu-smsd -E)
+        set_tests_properties(gammu-smsd-uninstall-eventlog PROPERTIES DEPENDS gammu-smsd-install-eventlog)
+
+        # Uninstall without install
+        add_test(NAME gammu-smsd-uninstall-service-fail COMMAND gammu-smsd -u)
+        set_tests_properties(gammu-smsd-uninstall-service-fail PROPERTIES WILL_FAIL TRUE)
+
+        # Install without config
+        add_test(NAME gammu-smsd-install-service-fail COMMAND gammu-smsd -i)
+        set_tests_properties(gammu-smsd-install-service-fail PROPERTIES WILL_FAIL TRUE)
+
+        # Install + Uninstall
+        add_test(NAME gammu-smsd-install-service COMMAND gammu-smsd -i -c "${CMAKE_CURRENT_BINARY_DIR}/smsd-test-null/.smsdrc")
+        add_test(NAME gammu-smsd-uninstall-service COMMAND gammu-smsd -u)
+        set_tests_properties(gammu-smsd-uninstall-service PROPERTIES DEPENDS gammu-smsd-install-service)
+    endif (WIN32)
+endif (WITH_BACKUP)

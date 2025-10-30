@@ -1,0 +1,533 @@
+# Gammu documentation translation
+# Copyright (C) 2003 - 2009 Michal Čihař <michal@cihar.com>
+# This file is distributed under the same license as the Gammu-docs package.
+# Automatically generated, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Gammu-docs 1.41.0\n"
+"Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
+"POT-Creation-Date: 2019-09-27 09:19+0200\n"
+"PO-Revision-Date: 2019-11-19 07:04+0000\n"
+"Last-Translator: Tuomas Lähteenmäki <lahtis@gmail.com>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/gammu/gammu-docs/"
+"fi/>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10-dev\n"
+
+#. type: Title =
+#: README.rst:2
+#, no-wrap
+msgid "Gammu All Mobile Management Utilities"
+msgstr "Gammu kaikki mobiilihallinnan apuohjelmat"
+
+#. type: Plain text
+#: README.rst:6
+msgid ""
+"Gammu is library and command line utility for mobile phones. It is released "
+"under GNU GPL version 2."
+msgstr ""
+"Gammu on kirjasto ja kometorivityökalu matkapuhelimille. Se on julkaistu GNU "
+"GPL versio 2 -lisenssin alla."
+
+#. type: Plain text
+#: README.rst:11
+msgid ""
+"It has been initiated by Marcin Wiacek and other people. Originally the code "
+"was based on Gnokii <https://www.gnokii.org/> and later MyGnokii <http://www."
+"mwiacek.com/> projects. Gammu was former (up to version 0.58) called "
+"MyGnokii2."
+msgstr ""
+"Sen on alunperin luonut Marcin Wiacek ja kumppanit. Alkuperäinen koodi "
+"perustui Gnokii <https://www.gnokii.org/> ja myöhemmin MyGnokii <http://www."
+"mwiacek.com/> projekteihin. Gammua on aiemmin (versioon 0.58 saakka) "
+"kutsuttu nimellä MyGnokii2."
+
+#. type: Plain text
+#: README.rst:14
+msgid ""
+"Currently the project is lead by Michal Cihar <michal@cihar.com> with help "
+"of many contributors."
+msgstr ""
+"Nykyään projektia johtaa Michal Cihar <michal@cihar.com> useiden muiden "
+"vapaaehtoisten avulla."
+
+#. type: Labeled list
+#: README.rst:15 README.rst:19 README.rst:23 README.rst:27 README.rst:31
+#: README.rst:35
+#, no-wrap
+msgid ".. image"
+msgstr ".. image"
+
+#. type: Plain text
+#: README.rst:16
+msgid "https://travis-ci.org/gammu/gammu.svg?branch=master"
+msgstr "https://travis-ci.org/gammu/gammu.svg?branch=master"
+
+#. type: Plain text
+#: README.rst:18
+msgid ":alt: Build status :target: https://travis-ci.org/gammu/gammu"
+msgstr ":alt: Käännöksen tila :target: https://travis-ci.org/gammu/gammu"
+
+#. type: Plain text
+#: README.rst:20
+msgid ""
+"https://ci.appveyor.com/api/projects/status/dkm2eam66rbhhuwn/branch/master?"
+"svg=true"
+msgstr ""
+"https://ci.appveyor.com/api/projects/status/dkm2eam66rbhhuwn/branch/master?"
+"svg=true"
+
+#. type: Plain text
+#: README.rst:22
+msgid ""
+":alt: Windows Build status :target: https://ci.appveyor.com/project/nijel/"
+"gammu/branch/master"
+msgstr ""
+":alt:Windows käännöksen tila :target: https://ci.appveyor.com/project/nijel/"
+"gammu/branch/master"
+
+#. type: Plain text
+#: README.rst:24
+msgid "https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg"
+msgstr "https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg"
+
+#. type: Plain text
+#: README.rst:26
+msgid ""
+":alt: Translation status :target: https://hosted.weblate.org/engage/gammu/?"
+"utm_source=widget"
+msgstr ""
+":alt: Käännöstila :target: https://hosted.weblate.org/engage/gammu/"
+"?utm_source=widget"
+
+#. type: Plain text
+#: README.rst:28
+msgid "https://scan.coverity.com/projects/2890/badge.svg?flat=1"
+msgstr "https://scan.coverity.com/projects/2890/badge.svg?flat=1"
+
+#. type: Plain text
+#: README.rst:30
+msgid ":alt: Coverity scan :target: https://scan.coverity.com/projects/2890"
+msgstr ""
+":alt: Kattavuuden skannaus :target: https://scan.coverity.com/projects/2890"
+
+#. type: Plain text
+#: README.rst:32
+msgid "https://img.shields.io/liberapay/receives/Gammu.svg"
+msgstr "https://img.shields.io/liberapay/receives/Gammu.svg"
+
+#. type: Plain text
+#: README.rst:34
+msgid ":alt: Liberapay :target: https://liberapay.com/Gammu/donate"
+msgstr ":alt: Liberapay :target: https://liberapay.com/Gammu/donate"
+
+#. type: Plain text
+#: README.rst:36
+msgid ""
+"https://www.bountysource.com/badge/team?team_id=23177&style=bounties_received"
+msgstr ""
+"https://www.bountysource.com/badge/team?team_id=23177&style=bounties_received"
+
+#. type: Plain text
+#: README.rst:38
+msgid ""
+":alt: Bountysource :target: https://www.bountysource.com/teams/gammu/issues?"
+"utm_source=Gammu&utm_medium=shield&utm_campaign=bounties_received"
+msgstr ""
+":alt: Bountysource :target: https://www.bountysource.com/teams/gammu/issues?"
+"utm_source=Gammu&utm_medium=shield&utm_campaign=bounties_received"
+
+#. type: Title =
+#: README.rst:40
+#, no-wrap
+msgid "More information"
+msgstr "Lisätietoja"
+
+#. type: Plain text
+#: README.rst:43
+msgid "You can find more information on <https://wammu.eu/gammu/>."
+msgstr "Löydät lisätietoja osoitteesta <https://wammu.eu/gammu/>."
+
+#. type: Plain text
+#: README.rst:47
+msgid ""
+"There is also Gammu manual available in docs/manual. You can build HTML "
+"version of it using make manual-html which is viewable online at <https://"
+"wammu.eu/docs/manual/>."
+msgstr ""
+"Gammu -ohje on luettavissa docs/manual. Voit kääntää itsellesi HTML -version "
+"komennolla make manual-html. Manuaali on luettavissa myös osoitteessa "
+"<https://wammu.eu/docs/manual/>."
+
+#. type: Title =
+#: README.rst:50
+#, no-wrap
+msgid "Feedback and bug reports"
+msgstr "Palaute ja virheraportit"
+
+#. type: Plain text
+#: README.rst:54
+msgid ""
+"Any feedback is welcome, see <https://wammu.eu/support/> for information how "
+"to contact developers."
+msgstr ""
+"Kaikki palaute on tervetulluta, katso ohjeet <https://wammu.eu/support/> "
+"kuinka voit ottaa yhteyttä kehittäjiin."
+
+#. type: Title =
+#: README.rst:57
+#, no-wrap
+msgid "Support developers"
+msgstr "Tue tekijöitä"
+
+#. type: Plain text
+#: README.rst:59
+msgid "You can appreciate developers work at <https://wammu.eu/donate/>."
+msgstr ""
+"Voit osoittaa arvostuksesi kehittäjille osoitteesta <https://wammu.eu/donate/"
+">."
+
+#. type: Title =
+#: INSTALL:2
+#, no-wrap
+msgid "Gammu All Mobile Management Utilities - Installation"
+msgstr "Gammu kaikki mobiilihallinnan apuohjelmat - Asennus"
+
+#. type: Plain text
+#: INSTALL:5
+msgid ""
+"See docs/manual/project/install.rst for installation guide or see chapter "
+"\"Compiling Gammu\" in The Gammu Manual."
+msgstr ""
+"Katso asennusohjeet docs/manual/project/install.rst, tai lue kappale "
+"\"Compiling Gammu\" Gammu manuaalista."
+
+#~ msgid ""
+#~ "https://app.codesponsor.io/embed/e9cresCoq9fvHq4ya92dgNSj/gammu/gammu.svg"
+#~ msgstr ""
+#~ "https://app.codesponsor.io/embed/e9cresCoq9fvHq4ya92dgNSj/gammu/gammu.svg"
+
+#~ msgid ""
+#~ ":width: 888 :height: 68 :target: https://app.codesponsor.io/link/"
+#~ "e9cresCoq9fvHq4ya92dgNSj/gammu/gammu"
+#~ msgstr ""
+#~ ":width: 888 :height: 68 :target: https://app.codesponsor.io/link/"
+#~ "e9cresCoq9fvHq4ya92dgNSj/gammu/gammu"
+
+#, fuzzy
+#~| msgid "https://travis-ci.org/gammu/gammu.png?branch=master"
+#~ msgid "https://todofy.org/b/gammu/gammu"
+#~ msgstr "https://travis-ci.org/gammu/gammu.png?branch=master"
+
+#, fuzzy
+#~| msgid ":target: https://travis-ci.org/gammu/gammu"
+#~ msgid ":target: https://todofy.org/r/gammu/gammu"
+#~ msgstr ":target: https://travis-ci.org/gammu/gammu"
+
+#~ msgid "https://d2weczhvl823v0.cloudfront.net/gammu/gammu/trend.png"
+#~ msgstr "https://d2weczhvl823v0.cloudfront.net/gammu/gammu/trend.png"
+
+#~ msgid "Gammu Configuration File"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid ".. config:section"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid ".. config:option"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Connection"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Device"
+#~ msgstr "Laite"
+
+#~ msgid "Port"
+#~ msgstr "Tärkeys"
+
+#~ msgid "Model"
+#~ msgstr "Malli"
+
+#~ msgid "errors in text format\n"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "0x01: Call Information\n"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Note:"
+#~ msgstr "Huomautus:"
+
+#~ msgid "Get organizer information"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgid "Contacts"
+#~ msgstr "Yhteystiedot"
+
+#~ msgid "Calendar"
+#~ msgstr "Kalenteri"
+
+#~ msgid "Read"
+#~ msgstr "Luettu"
+
+#~ msgid "Phone connected to PC"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Initiation"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Incoming call"
+#~ msgstr "Tuleva puhelu"
+
+#~ msgid "Connected"
+#~ msgstr "Yhdistetty"
+
+#~ msgid "Disconnected"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Phone connected to CARC91"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "where location:\n"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "get configuration pins"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Configurable queries"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "SMSD Configuration File"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Send"
+#~ msgstr "Lähetä"
+
+#~ msgid "Password"
+#~ msgstr "Salasana"
+
+#~ msgid "Try to connect to phone if not connected."
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "name of configuration file"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Unicode"
+#~ msgstr "Unicode"
+
+#~ msgid "save to specified folder."
+#~ msgstr "Tiedostoa ei voi luoda!"
+
+#~ msgid "-animation"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Ringtones commands"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "getringtoneslist"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "user ringtones"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "Phone information commands"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "battery"
+#~ msgstr "akku"
+
+#~ msgid "Phone settings commands"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Up"
+#~ msgstr "Ylös"
+
+#~ msgid "Down"
+#~ msgstr "Alas"
+
+#~ msgid "Configuration commands"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Configuration"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "motivation"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid ".."
+#~ msgstr "..."
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgid "Messages"
+#~ msgstr "Viestit"
+
+#~ msgid "SMSC"
+#~ msgstr "SMSC"
+
+#~ msgid "Number"
+#~ msgstr "Numero"
+
+#~ msgid "Name"
+#~ msgstr "Nimi"
+
+#~ msgid "Text"
+#~ msgstr "Teksti"
+
+#~ msgid "Folder"
+#~ msgstr "Hakemisto"
+
+#~ msgid "Location"
+#~ msgstr "Sijainti"
+
+#~ msgid "Memory"
+#~ msgstr "Muisti"
+
+#~ msgid "Type"
+#~ msgstr "Tyyppi"
+
+#~ msgid "State"
+#~ msgstr "Tila"
+
+#~ msgid "``NokiaRingtone``"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "Name of the SMSC configuration"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Unknown"
+#~ msgstr "Tuntematon"
+
+#~ msgid "Left"
+#~ msgstr "Vasen"
+
+#~ msgid "Text formatting"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Right"
+#~ msgstr "Oikea"
+
+#~ msgid "Center"
+#~ msgstr "Keskitetty"
+
+#~ msgid "Large"
+#~ msgstr "Suuri"
+
+#~ msgid "Small"
+#~ msgstr "Pieni"
+
+#~ msgid "Bold"
+#~ msgstr "Lihavointi"
+
+#~ msgid "Italic"
+#~ msgstr "Kursivoitu"
+
+#~ msgid "Underlined"
+#~ msgstr "Alleviivattu"
+
+#~ msgid "Strikethrough"
+#~ msgstr "Yliviivaus"
+
+#~ msgid "Ringtone"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "Settings"
+#~ msgstr "Asetukset"
+
+#~ msgid "Priority"
+#~ msgstr "Tärkeys"
+
+#~ msgid "Value"
+#~ msgstr "Arvo"
+
+#~ msgid "      Gets network information.\n"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Get version information."
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Debugging configuration"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Call"
+#~ msgstr "Puhelut"
+
+#~ msgid "GSM_Call"
+#~ msgstr "Puhelut"
+
+#~ msgid "Getting phone information"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Custom configuration"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Callback"
+#~ msgstr "Puhelut"
+
+#~ msgid "GSM_GetRingtone"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "GSM_SetRingtone"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "GSM_GetRingtonesInfo"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "GSM_NoteRingtone"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "GSM_Ringtone"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "GSM_RingtoneInfo"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "GSM_AllRingtonesInfo"
+#~ msgstr "Luetaan tehtäviä"
+
+#~ msgid "Show version information and compiled in features."
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid "Error writing to the device."
+#~ msgstr "Yhdistä laite"
+
+#~ msgid "Can't set parity on the device."
+#~ msgstr "Yhdistä laite"
+
+#~ msgid ""
+#~ "Functionality not implemented. You are welcome to help authors with it."
+#~ msgstr ""
+#~ "Tämä toiminne ei ole puhelintasi varten. Jos haluat apua välineen kanssa, "
+#~ "ole hyvä ja ota yhteyttä ohjelman tekijään."
+
+#~ msgid ""
+#~ "Function is currently being implemented. If you want to help, please "
+#~ "contact authors."
+#~ msgstr ""
+#~ "Tämä toiminne ei ole puhelintasi varten. Jos haluat apua välineen kanssa, "
+#~ "ole hyvä ja ota yhteyttä ohjelman tekijään."
+
+#~ msgid "Service configuration is missing."
+#~ msgstr "Asetuksia ei löytynyt"
+
+#~ msgid "Could not connect to the server."
+#~ msgstr "Yhdistetään IMAP palvelimeen..."
+
+#~ msgid "Could not resolve the host name."
+#~ msgstr "Tallennettua viestiä ei pysty avaamaan!"
+
+#~ msgid "Configuration\n"
+#~ msgstr "Puhelimen tiedot"
+
+#~ msgid ""
+#~ "Configuration\n"
+#~ "=============\n"
+#~ msgstr "Puhelimen tiedot"

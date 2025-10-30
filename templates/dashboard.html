@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vendor Dashboard — Webcrumbs Style</title>
+
+  <!-- Fonts and Icons -->
+  <style>
+    @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
+    @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+    @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined);
+    @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css);
+  </style>
+
+  <!-- Webcrumbs Base CSS -->
+  <style>
+    /* (PASTED FULL TAILWIND-LIKE STYLES FROM YOUR PROVIDED SNIPPET) */
+  </style>
+
+  <!-- Custom Dashboard CSS -->
+  <style>
+    body {
+      background-color: #f9f9fb;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    #webcrumbs .dashboard-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 16px;
+    }
+
+    #webcrumbs .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    #webcrumbs .dashboard-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: rgb(99, 27, 255);
+    }
+
+    #webcrumbs .vendor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    #webcrumbs .vendor-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 24px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    #webcrumbs .vendor-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(99, 27, 255, 0.2);
+    }
+
+    #webcrumbs .vendor-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: rgb(233, 229, 255);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: rgb(99, 27, 255);
+      margin-bottom: 12px;
+    }
+
+    #webcrumbs .vendor-name {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    #webcrumbs .vendor-category {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    #webcrumbs .vendor-rating {
+      font-size: 14px;
+      color: #ffb400;
+    }
+
+    #webcrumbs .vendor-link {
+      color: rgb(99, 27, 255);
+      font-size: 14px;
+      text-decoration: none;
+      margin-top: 12px;
+      display: inline-block;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+<div id="webcrumbs">
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>Vendor Dashboard</h1>
+      <div class="text-gray-600 text-sm">All registered vendors</div>
+    </div>
+
+    <div id="vendorGrid" class="vendor-grid"></div>
+  </div>
+</div>
+
+<!-- Dynamic JSON Data + Render Logic -->
+<script>
+  const vendors = [
+    {
+      id: 1,
+      name: "FreshMart Groceries",
+      category: "Supermarket",
+      rating: 4.8,
+      logo: "🛒",
+      link: "vendor.html?id=1"
+    },
+    {
+      id: 2,
+      name: "TechZone Gadgets",
+      category: "Electronics",
+      rating: 4.6,
+      logo: "💻",
+      link: "vendor.html?id=2"
+    },
+    {
+      id: 3,
+      name: "StyleHub Boutique",
+      category: "Fashion & Apparel",
+      rating: 4.9,
+      logo: "👗",
+      link: "vendor.html?id=3"
+    },
+    {
+      id: 4,
+      name: "AutoCare Express",
+      category: "Automobile Services",
+      rating: 4.7,
+      logo: "🚗",
+      link: "vendor.html?id=4"
+    },
+    {
+      id: 5,
+      name: "BakeHouse Delight",
+      category: "Bakery",
+      rating: 4.9,
+      logo: "🍰",
+      link: "vendor.html?id=5"
+    }
+  ];
+
+  const vendorGrid = document.getElementById("vendorGrid");
+
+  vendors.forEach(vendor => {
+    const card = document.createElement("div");
+    card.className = "vendor-card";
+    card.innerHTML = `
+      <div class="vendor-logo">${vendor.logo}</div>
+      <div class="vendor-name">${vendor.name}</div>
+      <div class="vendor-category">${vendor.category}</div>
+      <div class="vendor-rating"><i class="fa fa-star"></i> ${vendor.rating}</div>
+      <a href="${vendor.link}" class="vendor-link">View Profile →</a>
+    `;
+    card.addEventListener("click", () => {
+      window.location.href = vendor.link;
+    });
+    vendorGrid.appendChild(card);
+  });
+</script>
+</body>
+</html>
+

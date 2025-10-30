@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bargain Chat Box</title>
+
+    <!-- Imports -->
+    <style>
+      @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined);
+      @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css);
+    </style>
+  </head>
+  <body>
+    <div id="webcrumbs">
+      <div class="bg-primary-50 min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-white shadow-md">
+          <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+              <span class="material-symbols-outlined text-primary-600 text-3xl mr-2">chat</span>
+              <h1 class="text-xl font-semibold">Bargain Chat</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+              <span class="material-symbols-outlined text-primary-600 cursor-pointer">notifications</span>
+              <img
+                src="https://images.unsplash.com/photo-1474377207190-a7d8b3334068"
+                alt="User"
+                class="w-8 h-8 rounded-full"
+              />
+            </div>
+          </div>
+        </header>
+
+        <!-- Chat Section -->
+        <main class="flex-grow flex flex-col px-4 py-6">
+          <div
+            id="chat-container"
+            class="bg-white rounded-xl shadow-lg p-6 flex flex-col space-y-4 overflow-y-auto flex-grow max-h-[70vh]"
+          >
+            <!-- Example messages -->
+            <div class="self-start bg-primary-100 text-primary-900 p-3 rounded-2xl rounded-bl-sm shadow-sm max-w-xs">
+              Hello, welcome to Bargain Chat! 👋
+            </div>
+
+            <div class="self-end bg-primary-600 text-white p-3 rounded-2xl rounded-br-sm shadow-sm max-w-xs">
+              Hi there! I'm interested in your offer.
+            </div>
+
+            <div class="self-start bg-primary-100 text-primary-900 p-3 rounded-2xl rounded-bl-sm shadow-sm max-w-xs">
+              Great! What price do you have in mind?
+            </div>
+          </div>
+
+          <!-- Input Bar -->
+          <div
+            class="mt-4 flex items-center bg-white rounded-full shadow-md p-2 space-x-2 border border-gray-200"
+          >
+            <input
+              id="chat-input"
+              type="text"
+              placeholder="Type your message..."
+              class="flex-grow outline-none px-4 py-2 text-gray-700 rounded-full"
+            />
+            <button
+              id="send-btn"
+              class="bg-primary-600 text-white p-3 rounded-full hover:bg-primary-700 transition transform hover:scale-105"
+            >
+              <span class="material-symbols-outlined">send</span>
+            </button>
+          </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white py-4 shadow-inner text-center text-sm text-gray-600">
+          <p>© 2025 Bargain Chat. All rights reserved.</p>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#f3f1ff",
+                100: "#e9e5ff",
+                200: "#d5cfff",
+                300: "#b7a9ff",
+                400: "#9478ff",
+                500: "#7341ff",
+                600: "#611bf8",
+                700: "#4607d0",
+                800: "#3c08aa",
+                900: "#220174",
+                DEFAULT: "#611bf8",
+              },
+            },
+          },
+          fontFamily: {
+            title: ["Lato", "sans-serif"],
+            body: ["Open Sans", "sans-serif"],
+          },
+        },
+      };
+
+      // Dynamic frontend chat behavior
+      const chatContainer = document.getElementById("chat-container");
+      const input = document.getElementById("chat-input");
+      const sendBtn = document.getElementById("send-btn");
+
+      sendBtn.addEventListener("click", () => {
+        const message = input.value.trim();
+        if (message === "") return;
+
+        // Display user message
+        const userMsg = document.createElement("div");
+        userMsg.className =
+          "self-end bg-primary-600 text-white p-3 rounded-2xl rounded-br-sm shadow-sm max-w-xs animate-slideUp";
+        userMsg.textContent = message;
+        chatContainer.appendChild(userMsg);
+
+        input.value = "";
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // Mock server response (replace later with WebSocket)
+        setTimeout(() => {
+          const reply = document.createElement("div");
+          reply.className =
+            "self-start bg-primary-100 text-primary-900 p-3 rounded-2xl rounded-bl-sm shadow-sm max-w-xs animate-slideUp";
+          reply.textContent = "Thanks for your message! I'll get back to you.";
+          chatContainer.appendChild(reply);
+          chatContainer.scrollTop = chatContainer.scrollHeight;
+        }, 1000);
+      });
+
+      // Enter key support
+      input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendBtn.click();
+      });
+    </script>
+
+    <style>
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-slideUp {
+        animation: slideUp 0.4s ease forwards;
+      }
+    </style>
+  </body>
+</html>
+

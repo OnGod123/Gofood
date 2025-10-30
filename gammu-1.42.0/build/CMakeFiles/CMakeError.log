@@ -1,0 +1,292 @@
+Determining if the __clang__ exist failed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3b698/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3b698.dir/build.make CMakeFiles/cmTC_3b698.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3b698.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_3b698.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘__clang__’ undeclared (first use in this function)
+    7 |   return ((int*)(&__clang__))[argc];
+      |                   ^~~~~~~~~
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_3b698.dir/build.make:78: CMakeFiles/cmTC_3b698.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_3b698/fast] Error 2
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __clang__
+  return ((int*)(&__clang__))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strnicmp exist failed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_df8bf/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_df8bf.dir/build.make CMakeFiles/cmTC_df8bf.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_df8bf.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_df8bf.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘_strnicmp’ undeclared (first use in this function); did you mean ‘strncmp’?
+    8 |   return ((int*)(&_strnicmp))[argc];
+      |                   ^~~~~~~~~
+      |                   strncmp
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_df8bf.dir/build.make:78: CMakeFiles/cmTC_df8bf.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_df8bf/fast] Error 2
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strnicmp
+  return ((int*)(&_strnicmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _stricmp exist failed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5da3b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5da3b.dir/build.make CMakeFiles/cmTC_5da3b.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5da3b.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_5da3b.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘_stricmp’ undeclared (first use in this function); did you mean ‘strncmp’?
+    8 |   return ((int*)(&_stricmp))[argc];
+      |                   ^~~~~~~~
+      |                   strncmp
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_5da3b.dir/build.make:78: CMakeFiles/cmTC_5da3b.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_5da3b/fast] Error 2
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _stricmp
+  return ((int*)(&_stricmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the I_SETSIG exist failed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d558a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d558a.dir/build.make CMakeFiles/cmTC_d558a.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d558a.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_d558a.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: stropts.h: No such file or directory
+    2 | #include <stropts.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_d558a.dir/build.make:78: CMakeFiles/cmTC_d558a.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_d558a/fast] Error 2
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stropts.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef I_SETSIG
+  return ((int*)(&I_SETSIG))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the daemon exist failed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_04355/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_04355.dir/build.make CMakeFiles/cmTC_04355.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_04355.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_04355.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘daemon’ undeclared (first use in this function)
+    8 |   return ((int*)(&daemon))[argc];
+      |                   ^~~~~~
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_04355.dir/build.make:78: CMakeFiles/cmTC_04355.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_04355/fast] Error 2
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef daemon
+  return ((int*)(&daemon))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the dup exist failed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3856e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3856e.dir/build.make CMakeFiles/cmTC_3856e.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3856e.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_3856e.dir/CheckSymbolExists.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: io.h: No such file or directory
+    2 | #include <io.h>
+      |          ^~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_3856e.dir/build.make:78: CMakeFiles/cmTC_3856e.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_3856e/fast] Error 2
+
+
+File /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <io.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef dup
+  return ((int*)(&dup))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function pgettext exists failed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fbc19/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fbc19.dir/build.make CMakeFiles/cmTC_fbc19.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fbc19.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pgettext -o CMakeFiles/cmTC_fbc19.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fbc19
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fbc19.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pgettext -rdynamic CMakeFiles/cmTC_fbc19.dir/CheckFunctionExists.c.o -o cmTC_fbc19 
+/usr/bin/ld: CMakeFiles/cmTC_fbc19.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `pgettext'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_fbc19.dir/build.make:99: cmTC_fbc19] Error 1
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_fbc19/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test ICONV_SECOND_ARGUMENT_IS_CONST failed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ce332/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ce332.dir/build.make CMakeFiles/cmTC_ce332.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ce332.dir/src.c.o
+/usr/bin/cc -DICONV_SECOND_ARGUMENT_IS_CONST  -Werror  -o CMakeFiles/cmTC_ce332.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c:9:17: error: passing argument 2 of ‘iconv’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+    9 |     iconv(conv, &in, &ilen, &out, &olen);
+      |                 ^~~
+      |                 |
+      |                 const char **
+In file included from /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c:2:
+/usr/include/iconv.h:42:54: note: expected ‘char ** restrict’ but argument is of type ‘const char **’
+   42 | extern size_t iconv (iconv_t __cd, char **__restrict __inbuf,
+      |                                    ~~~~~~~~~~~~~~~~~~^~~~~~~
+cc1: all warnings being treated as errors
+gmake[1]: *** [CMakeFiles/cmTC_ce332.dir/build.make:78: CMakeFiles/cmTC_ce332.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_ce332/fast] Error 2
+
+
+Source file was:
+
+  #include <iconv.h>
+  int main(){
+    iconv_t conv = 0;
+    const char* in = 0;
+    size_t ilen = 0;
+    char* out = 0;
+    size_t olen = 0;
+    iconv(conv, &in, &ilen, &out, &olen);
+    return 0;
+  }
+
+Performing C SOURCE FILE Test HAVE_MACRO_FUNC failed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_16d27/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_16d27.dir/build.make CMakeFiles/cmTC_16d27.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_16d27.dir/src.c.o
+/usr/bin/cc -DHAVE_MACRO_FUNC   -o CMakeFiles/cmTC_16d27.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c:5:13: error: ‘__FUNC__’ undeclared (first use in this function)
+    5 |     printf( __FUNC__);
+      |             ^~~~~~~~
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c:5:13: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_16d27.dir/build.make:78: CMakeFiles/cmTC_16d27.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_16d27/fast] Error 2
+
+
+Source file was:
+
+#include <stdio.h>
+
+int main(void) {
+    printf( __FUNC__);
+    return 0;
+}
+
+Performing C SOURCE FILE Test IRDA_FOUND failed with the following output:
+Change Dir: /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f617f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f617f.dir/build.make CMakeFiles/cmTC_f617f.dir/build
+gmake[1]: Entering directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f617f.dir/src.c.o
+/usr/bin/cc -DIRDA_FOUND   -o CMakeFiles/cmTC_f617f.dir/src.c.o -c /home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c
+/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp/src.c:5:10: fatal error: linux/irda.h: No such file or directory
+    5 | #include <linux/irda.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f617f.dir/build.make:78: CMakeFiles/cmTC_f617f.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/vincent/Gofood/gammu-1.42.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f617f/fast] Error 2
+
+
+Source file was:
+
+#include <sys/socket.h>
+#include <linux/types.h>
+#include <sys/ioctl.h>
+#include <linux/irda.h>
+    int main(int argc, char **argv) {
+        return 0;
+    }
+            

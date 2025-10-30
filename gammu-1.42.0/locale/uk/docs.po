@@ -1,0 +1,237 @@
+# Gammu documentation translation
+# Copyright (C) 2003 - 2012 Michal Čihař <michal@cihar.com>
+# This file is distributed under the same license as the Gammu-docs package.
+# Automatically generated, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Gammu-docs 1.41.0\n"
+"Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
+"POT-Creation-Date: 2019-09-27 09:19+0200\n"
+"PO-Revision-Date: 2018-07-04 15:43+0000\n"
+"Last-Translator: Olexandr Nesterenko <olexn@ukr.net>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/gammu/gammu-"
+"docs/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.1-dev\n"
+
+#. type: Title =
+#: README.rst:2
+#, no-wrap
+msgid "Gammu All Mobile Management Utilities"
+msgstr "Gammu Всі Утиліти для керування мобільними пристроями"
+
+#. type: Plain text
+#: README.rst:6
+msgid ""
+"Gammu is library and command line utility for mobile phones. It is released "
+"under GNU GPL version 2."
+msgstr ""
+"Gammu - бібліотека та утиліта командного рядка для мобільних телефонів. Він "
+"випущений під версією 2 GNU GPL."
+
+#. type: Plain text
+#: README.rst:11
+msgid ""
+"It has been initiated by Marcin Wiacek and other people. Originally the code "
+"was based on Gnokii <https://www.gnokii.org/> and later MyGnokii <http://www."
+"mwiacek.com/> projects. Gammu was former (up to version 0.58) called "
+"MyGnokii2."
+msgstr ""
+"Його ініціювали Марчін В'ячек(Marcin Wiacek) та інші люди. Спочатку код "
+"базувався на проектах Gnokii <https://www.gnokii.org/>, а пізніше - MyGnokii "
+"<http://www.mwiacek.com/>. Гамму був колишнім (до версії 0.58), який "
+"називався MyGnokii2."
+
+#. type: Plain text
+#: README.rst:14
+msgid ""
+"Currently the project is lead by Michal Cihar <michal@cihar.com> with help "
+"of many contributors."
+msgstr ""
+"В даний час за проектом керує Міхал Чіхар(Michal Cihar) <michal@cihar.com> "
+"за допомогою багатьох авторів."
+
+#. type: Labeled list
+#: README.rst:15 README.rst:19 README.rst:23 README.rst:27 README.rst:31
+#: README.rst:35
+#, no-wrap
+msgid ".. image"
+msgstr ".. image"
+
+#. type: Plain text
+#: README.rst:16
+msgid "https://travis-ci.org/gammu/gammu.svg?branch=master"
+msgstr "https://travis-ci.org/gammu/gammu.svg?branch=master"
+
+#. type: Plain text
+#: README.rst:18
+msgid ":alt: Build status :target: https://travis-ci.org/gammu/gammu"
+msgstr ":alt: Статус збірки :target: https://travis-ci.org/gammu/gammu"
+
+#. type: Plain text
+#: README.rst:20
+msgid ""
+"https://ci.appveyor.com/api/projects/status/dkm2eam66rbhhuwn/branch/master?"
+"svg=true"
+msgstr ""
+"https://ci.appveyor.com/api/projects/status/dkm2eam66rbhhuwn/branch/master?"
+"svg=true"
+
+#. type: Plain text
+#: README.rst:22
+msgid ""
+":alt: Windows Build status :target: https://ci.appveyor.com/project/nijel/"
+"gammu/branch/master"
+msgstr ""
+":alt: Статус збірки для Windows :target: https://ci.appveyor.com/project/"
+"nijel/gammu/branch/master"
+
+#. type: Plain text
+#: README.rst:24
+msgid "https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg"
+msgstr "https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg"
+
+#. type: Plain text
+#: README.rst:26
+msgid ""
+":alt: Translation status :target: https://hosted.weblate.org/engage/gammu/?"
+"utm_source=widget"
+msgstr ""
+":alt: Статус перекладу :target: https://hosted.weblate.org/engage/gammu/?"
+"utm_source=widget"
+
+#. type: Plain text
+#: README.rst:28
+msgid "https://scan.coverity.com/projects/2890/badge.svg?flat=1"
+msgstr "https://scan.coverity.com/projects/2890/badge.svg?flat=1"
+
+#. type: Plain text
+#: README.rst:30
+msgid ":alt: Coverity scan :target: https://scan.coverity.com/projects/2890"
+msgstr ":alt: Coverity scan :target: https://scan.coverity.com/projects/2890"
+
+#. type: Plain text
+#: README.rst:32
+#, fuzzy
+#| msgid "https://img.shields.io/gratipay/Gammu.svg"
+msgid "https://img.shields.io/liberapay/receives/Gammu.svg"
+msgstr "https://img.shields.io/gratipay/Gammu.svg"
+
+#. type: Plain text
+#: README.rst:34
+#, fuzzy
+#| msgid ":alt: Gratipay :target: https://gratipay.com/Gammu/"
+msgid ":alt: Liberapay :target: https://liberapay.com/Gammu/donate"
+msgstr ":alt: Gratipay :target: https://gratipay.com/Gammu/"
+
+#. type: Plain text
+#: README.rst:36
+msgid ""
+"https://www.bountysource.com/badge/team?team_id=23177&style=bounties_received"
+msgstr ""
+"https://www.bountysource.com/badge/team?team_id=23177&style=bounties_received"
+
+#. type: Plain text
+#: README.rst:38
+msgid ""
+":alt: Bountysource :target: https://www.bountysource.com/teams/gammu/issues?"
+"utm_source=Gammu&utm_medium=shield&utm_campaign=bounties_received"
+msgstr ""
+":alt: Bountysource :target: https://www.bountysource.com/teams/gammu/issues?"
+"utm_source=Gammu&utm_medium=shield&utm_campaign=bounties_received"
+
+#. type: Title =
+#: README.rst:40
+#, no-wrap
+msgid "More information"
+msgstr "Більше інформації"
+
+#. type: Plain text
+#: README.rst:43
+msgid "You can find more information on <https://wammu.eu/gammu/>."
+msgstr ""
+"Ви можете знайти додаткову інформацію на сторінці <https://wammu.eu/gammu/>."
+
+#. type: Plain text
+#: README.rst:47
+msgid ""
+"There is also Gammu manual available in docs/manual. You can build HTML "
+"version of it using make manual-html which is viewable online at <https://"
+"wammu.eu/docs/manual/>."
+msgstr ""
+"Існує також посібник Gammu, доступний у docs/manual. Ви можете створити HTML-"
+"версію з використанням manual-html, який можна переглянути в Інтернеті за "
+"адресою <https://wammu.eu/docs/manual/>."
+
+#. type: Title =
+#: README.rst:50
+#, no-wrap
+msgid "Feedback and bug reports"
+msgstr "Зворотній зв'язок та повідомлення про помилки"
+
+#. type: Plain text
+#: README.rst:54
+msgid ""
+"Any feedback is welcome, see <https://wammu.eu/support/> for information how "
+"to contact developers."
+msgstr ""
+"Будь-який зворотний зв'язок бажаний, перегляньте <https://wammu.eu/support/> "
+"інформацію про те, як зв'язатися з розробниками."
+
+#. type: Title =
+#: README.rst:57
+#, no-wrap
+msgid "Support developers"
+msgstr "Підтримка розробників"
+
+#. type: Plain text
+#: README.rst:59
+msgid "You can appreciate developers work at <https://wammu.eu/donate/>."
+msgstr ""
+"Ви можете оцінити роботу розробників за адресою <https://wammu.eu/donate/>."
+
+#. type: Title =
+#: INSTALL:2
+#, no-wrap
+msgid "Gammu All Mobile Management Utilities - Installation"
+msgstr "Gammu всі утиліти для керування мобільними пристроями - установка"
+
+#. type: Plain text
+#: INSTALL:5
+msgid ""
+"See docs/manual/project/install.rst for installation guide or see chapter "
+"\"Compiling Gammu\" in The Gammu Manual."
+msgstr ""
+"Див. docs/manual/project/install.rst для інструкції по встановленню або див. "
+"розділ \"Compiling Gammu\" в посібнику Gammu."
+
+#~ msgid ""
+#~ "https://app.codesponsor.io/embed/e9cresCoq9fvHq4ya92dgNSj/gammu/gammu.svg"
+#~ msgstr ""
+#~ "https://app.codesponsor.io/embed/e9cresCoq9fvHq4ya92dgNSj/gammu/gammu.svg"
+
+#~ msgid ""
+#~ ":width: 888 :height: 68 :target: https://app.codesponsor.io/link/"
+#~ "e9cresCoq9fvHq4ya92dgNSj/gammu/gammu"
+#~ msgstr ""
+#~ ":width: 888 :height: 68 :target: https://app.codesponsor.io/link/"
+#~ "e9cresCoq9fvHq4ya92dgNSj/gammu/gammu"
+
+#, fuzzy
+#~| msgid "https://travis-ci.org/gammu/gammu.png?branch=master"
+#~ msgid "https://todofy.org/b/gammu/gammu"
+#~ msgstr "https://travis-ci.org/gammu/gammu.png?branch=master"
+
+#, fuzzy
+#~| msgid ":target: https://travis-ci.org/gammu/gammu"
+#~ msgid ":target: https://todofy.org/r/gammu/gammu"
+#~ msgstr ":target: https://travis-ci.org/gammu/gammu"
+
+#~ msgid "https://d2weczhvl823v0.cloudfront.net/gammu/gammu/trend.png"
+#~ msgstr "https://d2weczhvl823v0.cloudfront.net/gammu/gammu/trend.png"

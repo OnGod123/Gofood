@@ -52,6 +52,8 @@ def create_app(config_name=None):
     app.register_blueprint(wishlist_bp) 
     app.register_blueprint(vendor_status_bp)
     app.register_blueprint(moniepoint.monie_bp)
+    app.register_blueprint(wallet_bp)
+    app.register_blueprint(webhook_bp)
     socketio.on_namespace(BargainNamespace("/bargain"))
     socketio.on_namespace(DeliveryNamespace("/delivery"))
 

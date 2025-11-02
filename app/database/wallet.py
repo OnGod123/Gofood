@@ -1,34 +1,32 @@
+# app/models.py
 from datetime import datetime
-from app.extensions import db
 import uuid
+from sqlalchemy.dialects.postgresql import UUID
+from app.extensions import Base as base 
 
-class Wallet(db.Model):
+lass Wallet(base):
     __tablename__ = "wallets"
-
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.UUID(as_uuid=True), db.ForeignKey("users.id"), nullable=False, unique=True)
-    balance = db.Column(db.Float, default=0.0)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-
-    user = db.relationship("User", back_populates="wallet")
+    id = Column(db.Integer, primary_key=True)
+    user_id = Column(db.UUID(as_uuid=True), db.ForeignKey("users.id"), nullable=False, unique=True)
+    balance = Column(db.Float, default=0.0)
+    updated_at = Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    user = relationship("User", back_populates="wallet")
 
     def credit(self, amount: float):
-        """Add funds to wallet"""
-        self.balance += amount
+        self.balance = float(self.balance) + float(amount)
 
     def debit(self, amount: float):
-        """Deduct funds if balance is sufficient"""
-        if self.balance < amount:
+        if float(self.balance) < float(amount):
             raise ValueError("Insufficient wallet balance")
-        self.balance -= amount
+        self.balance = float(self.balance) - float(amount)
 
-class Transaction(db.Model):
+class Transaction(base):
     __tablename__ = "transactions"
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    vendor_id = db.Column(db.Integer, db.ForeignKey("vendors.id"))
-    amount = db.Column(db.Float)
-    type = db.Column(db.String(32))
-    reference = db.Column(db.String(128), unique=True)
-    status = db.Column(db.String(32), default="pending")
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    id = Column(db.Integer, primary_key=True)
+    user_id = Column(db.Integer, db.ForeignKey("users.id"))
+    vendor_id = Column(db.Integer, db.ForeignKey("vendors.id"))
+    amount = Column(db.Float)
+    type = Column(db.String(32))
+    reference = Column(db.String(128), unique=True)
+    status = Column(db.String(32), default="pending")
+    created_at = Column(db.DateTime, default=datetime.utcnow)

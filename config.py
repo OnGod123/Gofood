@@ -17,5 +17,7 @@ class Config:
     CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL", "redis://localhost:6379/1")
     CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND", "redis://localhost:6379/2")
     SESSION_EXPIRE = int(os.environ.get("SESSION_EXPIRE", "900"))
+    PAYSTACK_SECRET_KEY = os.getenv("PAYSTACK_SECRET_KEY"),
+    DEFAULT_PAYMENT_PROVIDER = os.getenv("DEFAULT_PAYMENT_PROVIDER", "paystack")
 
 

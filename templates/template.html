@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rider Tracker</title>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  </head>
+  <body>
+    <h2>Rider Live Tracker</h2>
+    <pre id="log"></pre>
+
+    <script>
+      const socket = io("http://localhost:5000/rider");
+
+      socket.on("connect", () => {
+        console.log("Connected to rider socket");
+        socket.emit("join", { rider_id: 1 });
+      });
+
+      async function getAddress(lat, lng) {
+        const apiKey = "YOUR_GOOGLE_MAPS_KEY";
+        const response = await fetch(
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`
+        );
+        const data = await response.json();
+        return data.results[0]?.formatted_address || "Unknown location";
+      }
+
+      navigator.geolocation.watchPosition(async (pos) => {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+        const address = await getAddress(lat, lng);
+
+        socket.emit("update_location", {
+          rider_id: 1,
+          lat,
+          lng,
+          address,
+        });
+      });
+
+      socket.on("location_update", (data) => {
+        console.log("Broadcast update:", data);
+        document.getElementById("log").textContent = JSON.stringify(data, null, 2);
+      });
+    </script>
+  </body>
+</html>
+

@@ -34,6 +34,9 @@ def create_app(config_name=None):
     from app.handlers import moniepoint
     from app.websocket.bargain_namespace import BargainNamespace
     from app.websocket.delivery_namespace import DeliveryNamespace
+    from app.handlers.rider_handler import rider_bp
+    app.register_blueprint(rider_bp)
+    from app.websocket.rider_namespace import RiderNamespace
 
 
 
@@ -56,6 +59,7 @@ def create_app(config_name=None):
     app.register_blueprint(webhook_bp)
     socketio.on_namespace(BargainNamespace("/bargain"))
     socketio.on_namespace(DeliveryNamespace("/delivery"))
+    socketio.on_namespace(RiderNamespace("/rider"))
 
 
     

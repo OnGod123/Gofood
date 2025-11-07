@@ -22,7 +22,8 @@ RUN pip install --upgrade pip
 RUN pip install -r /app/requirements.txt
 
 # copy project
-COPY . . /app
+COPY  ../app /app/app
+COPY ../requirements.txt /app/
 
 # expose internal port used by Hypercorn
 EXPOSE 8000

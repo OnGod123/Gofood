@@ -23,16 +23,19 @@ def jwt_required(f):
             # Decode JWT
             data = jwt.decode(token, current_app.config["JWT_SECRET"], algorithms=["HS256"])
             email = data.get("email")
+            user_id = data.get("user_id")
+            username = data.get("username")
 
             # Verify Redis session is still valid
             if not r.exists(f"session:{email}"):
                 return redirect(url_for("auth.signin"))
 
             # Attach the user to Flask's global context
-            user = db.session.query(User).filter_by(email=email).first()
+            user = db.session.query(User).filter_by(email=email, id=user_id).first()
             if not user:
                 return redirect(url_for("auth.signin"))
-            g.current_user = user
+            
+            g.current_user = user  # you can access g.current_user.id, .username, etc.
 
         except jwt.ExpiredSignatureError:
             return redirect(url_for("auth.signin"))
@@ -40,19 +43,27 @@ def jwt_required(f):
             return redirect(url_for("auth.signin"))
 
         return f(*args, **kwargs)
+    
     return decorated
 
 @auth_bp.route("/signin", methods=["POST"])
 def signin_post():
-    email = request.form.get("email")
-    password = request.form.get("password")
+    # Support both JSON and form data
+    if request.is_json:
+        data = request.get_json()
+        email = data.get("email")
+        password = data.get("password")
+    else:
+        email = request.form.get("email")
+        password = request.form.get("password")
+    
     ip_address = request.remote_addr
     user_agent = request.headers.get("User-Agent")
 
     user = db.session.query(User).filter_by(email=email).first()
 
-    if user and password == "1234":  # TODO: replace with proper password check
-        # ✅ Log successful signin
+    if user and check_password_hash(user.password, password):  # ✅ proper password check
+        # Log successful signin
         signin_log = Signin(
             user_id=user.id,
             ip_address=ip_address,
@@ -66,7 +77,12 @@ def signin_post():
         # Generate JWT and Redis session
         exp_time = datetime.datetime.utcnow() + datetime.timedelta(minutes=15)
         token = jwt.encode(
-            {"email": email, "exp": exp_time},
+            {
+                "email": email,
+                "username": user.username,
+                "user_id": user.id,
+                "exp": exp_time
+            },
             current_app.config["JWT_SECRET"],
             algorithm="HS256"
         )
@@ -80,7 +96,6 @@ def signin_post():
         return resp
 
     else:
-        
         signin_log = Signin(
             user_id=user.id if user else None,
             ip_address=ip_address,
@@ -91,6 +106,10 @@ def signin_post():
         )
         db.session.add(signin_log)
         db.session.commit()
+
+        # Respond with JSON if request was JSON
+        if request.is_json:
+            return jsonify({"error": "Invalid credentials"}), 401
 
         return render_template("signin.html", error="Invalid credentials")
 

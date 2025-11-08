@@ -1,33 +1,30 @@
-from flask import Blueprint, request, jsonify, g
-from app.extensions import db, r
+from functools import wraps
+from flask import request, jsonify, g
 from app.models.user import User
-from app.utils.auth import token_required
 from app.utils.services import send_sms
-from app.utils.token_service import generate_otp, verify_otp
+from app.utils.token_service import send_otp
 
-wallet_payment_bp = Blueprint("wallet_payment_bp", __name__)
-
-@wallet_payment_bp.route("/order/request-phone-verification", methods=["POST"])
-@token_required
-def request_phone_verification():
+def otp_request_required(context="payment", ttl=300):
     """
-    Sends OTP to user's registered phone before wallet payment.
+    Decorator to send OTP to user's phone before executing a sensitive action.
     """
-    try:
-        user = User.query.get(g.user.id)
-        if not user or not user.phone:
-            return jsonify({"error": "No phone number found for this user"}), 404
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            user = User.query.get(g.user.id)
+            if not user or not user.phone:
+                return jsonify({"error": "No phone number found for this user"}), 404
 
-        otp = generate_otp(user.phone)
-        sms_text = f"Your Gofood payment verification code is {otp}"
+            # Generate OTP and store it in Redis for the given context
+            otp = send_otp(user.phone, context=context, ttl=ttl)
+            sms_text = f"Your Gofood {context} verification code is {otp}"
 
-        if send_sms(user.phone, sms_text):
-            # Cache OTP session for payment
-            r.setex(f"otp:payment:{user.phone}", 300, otp)
-            return jsonify({"message": "OTP sent successfully"}), 200
-        else:
-            return jsonify({"error": "Failed to send OTP"}), 500
+            if not send_sms(user.phone, sms_text):
+                return jsonify({"error": "Failed to send OTP"}), 500
 
-    except Exception as e:
-        return jsonify({"error": "Failed to send OTP", "details": str(e)}), 500
+            # Optional: return a message that OTP was sent
+            return jsonify({"message": f"OTP sent successfully for {context}"}), 200
+
+        return wrapper
+    return decorator
 

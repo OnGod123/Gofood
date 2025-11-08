@@ -9,18 +9,12 @@ wallet_payment_bp = Blueprint("wallet_payment_bp", __name__)
 
 @wallet_payment_bp.route("/order/proceed-to-payment", methods=["POST"])
 @verify_jwt_token
-def proceed_to_payment(current_user):
+@otp_request_required(context="payment", ttl=300)
+def proceed_to_payment(current_user, order_id):
     """
     Process payment using internal wallet instead of external gateway.
     """
     try:
-        data = request.get_json()
-        order_id = data.get("order_id")
-
-        if not order_id:
-            return jsonify({"error": "order_id is required"}), 400
-
-        # 1️⃣ Fetch pending orders
         orders = Order.query.filter_by(
             user_id=current_user.id, order_id=order_id, status="pending"
         ).all()
@@ -72,7 +66,7 @@ def proceed_to_payment(current_user):
         delivery_url = url_for(
             "delivery_bp.start_delivery_process",  # <-- your delivery handler endpoint
             order_id=order_id,
-            _external=True
+            _external=True, delivery_id=delivery.id
         )
 
         # 6️⃣ Vendor Notification (WebSocket/Celery)

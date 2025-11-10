@@ -5,7 +5,7 @@ from app.extensions import db
 from app.models import Wallet, PaymentTransaction, Transaction
 from app.payments.factory import get_provider
 
-webhook_bp = Blueprint("webhook", __name__, url_prefix="/webhook")
+flutterwave = Blueprint("webhook", __name__, url_prefix="/webhook")
 
 def verify_flutterwave_signature(req):
     # Flutterwave sends header 'verif-hash' that must match the secret you set in dashboard
@@ -20,82 +20,90 @@ def verify_flutterwave_signature(req):
         return False
     return header == expected
 
-@webhook_bp.route("/flutterwave", methods=["POST"])
+@flutterwave_bp.route("/webhook", methods=["POST"])
 def flutterwave_webhook():
-    # Step 0: verify signature
+    """Handle Flutterwave webhook callback"""
+    # Verify webhook authenticity
     if not verify_flutterwave_signature(request):
-        return jsonify({"error": "Invalid signature"}), 403
+        current_app.logger.warning("Invalid Flutterwave webhook signature")
+        return jsonify({"error": "Invalid signature"}), 400
 
     payload = request.get_json(force=True)
-    # Flutterwave sends event & data, e.g., payload['event'] and payload['data']
-    data = payload.get("data") or payload
-    # The transaction id is typically data['id'] and tx_ref is data['tx_ref']
-    trans_id = data.get("id") or data.get("transaction_id")
-    tx_ref = data.get("tx_ref") or data.get("reference")
+    reference = payload.get("data", {}).get("tx_ref")
 
-    # Determine what to verify: prefer id, otherwise use tx_ref
-    reference_for_verify = trans_id if trans_id is not None else tx_ref
-    if not reference_for_verify:
-        current_app.logger.error("No reference found in webhook payload")
-        return jsonify({"error": "No reference found"}), 400
+    if not reference:
+        return jsonify({"error": "Missing transaction reference"}), 400
 
-    provider = get_provider("flutterwave")
+    provider_name = "flutterwave"
     try:
-        result = provider.verify_payment(reference_for_verify)
+        provider = get_provider(provider_name)
+        result = provider.verify_payment(reference)
     except Exception as e:
-        current_app.logger.exception("Flutterwave verify failed")
+        current_app.logger.exception("Payment verification failed")
         return jsonify({"error": "Verification failed", "details": str(e)}), 500
 
-    # Must be successful before crediting
-    if result.get("status") != "successful":
-        current_app.logger.info("Flutterwave payment not successful: %s", result)
-        return jsonify({"message": "Payment not successful", "status": result.get("status")}), 200
+    if result.get("status", "").lower() != "success":
+        return jsonify({"error": "Payment not verified", "detail_status": result.get("status")}), 400
 
-    # Find PaymentTransaction record by provider_txn_id or tx_ref
-    txn = None
-    if trans_id:
-        txn = PaymentTransaction.query.filter_by(provider_txn_id=str(trans_id)).first()
-    if not txn and tx_ref:
-        txn = PaymentTransaction.query.filter(PaymentTransaction.metadata["tx_ref"].astext == tx_ref).first() \
-              if hasattr(PaymentTransaction, "metadata") and PaymentTransaction.metadata is not None else None
-
-    # Fallback try provider_txn_id == tx_ref
+    # Find PaymentTransaction
+    txn = PaymentTransaction.query.filter_by(provider_txn_id=reference).first()
     if not txn:
-        txn = PaymentTransaction.query.filter_by(provider_txn_id=str(tx_ref)).first()
+        return jsonify({"error": "Transaction not found"}), 404
 
-    if not txn:
-        # Optionally create a new PaymentTransaction record to represent an incoming deposit
-        current_app.logger.warning("PaymentTransaction record not found for reference %s", reference_for_verify)
-        return jsonify({"error": "Transaction record not found"}), 404
-
-    # Idempotency check
     if txn.processed:
-        return jsonify({"message": "Already processed"}), 200
+        return jsonify({"message": "Transaction already processed"}), 200
 
-    # Credit wallet (use DB transaction and locking to avoid races)
-    wallet = Wallet.query.filter_by(user_id=txn.target_user_id).with_for_update().first()
+    # Find Central Account (Moniepoint)
+    central = CentralAccount.query.filter_by(provider="moniepoint").first()
+    if not central:
+        return jsonify({"error": "Central Moniepoint account not configured"}), 500
+
+    # Deduct from central, credit user wallet
+    wallet = Wallet.query.filter_by(user_id=txn.target_user_id).first()
     if not wallet:
-        current_app.logger.error("Wallet not found for user %s", txn.target_user_id)
-        return jsonify({"error": "Wallet not found"}), 404
+        return jsonify({"error": "User wallet not found"}), 404
 
-    wallet.credit(result["amount"])
-    txn.processed = True
-    txn.processed_at = datetime.utcnow()
+    try:
+        amount = txn.amount
+        if central.balance < amount:
+            current_app.logger.warning("Central account insufficient balance")
+            return jsonify({"error": "Central account insufficient balance"}), 400
 
-    log_tx = Transaction(
-        user_id=txn.target_user_id,
-        amount=result["amount"],
-        type="funding",
-        reference=str(reference_for_verify),
-        status="success",
-        created_at=datetime.utcnow()
-    )
+        # Perform the debit/credit
+        central.balance -= amount
+        wallet.balance += amount
+        txn.processed = True
+        txn.updated_at = datetime.utcnow()
 
-    db.session.add(wallet)
-    db.session.add(txn)
-    db.session.add(log_tx)
-    db.session.commit()
+        # Record ledger transactions
+        debit_txn = Transaction(
+            wallet_id=None,  # system account
+            amount=amount,
+            type="debit",
+            description=f"Debit from central ({central.provider}) for {wallet.user.full_name}",
+            reference=f"CENTRAL-{reference}",
+            created_at=datetime.utcnow(),
+        )
+        credit_txn = Transaction(
+            wallet_id=wallet.id,
+            amount=amount,
+            type="credit",
+            description=f"Credit from central ({central.provider}) via Flutterwave",
+            reference=f"USER-{reference}",
+            created_at=datetime.utcnow(),
+        )
 
-    # Optionally notify user (WhatsApp/email) in a background job
-    return jsonify({"message": "Wallet funded", "user_id": txn.target_user_id, "amount": result["amount"]}), 200
+        db.session.add_all([debit_txn, credit_txn])
+        db.session.commit()
+        current_app.logger.info(f"Wallet funded successfully for {wallet.user.full_name}")
 
+    except Exception as e:
+        db.session.rollback()
+        current_app.logger.exception("Error processing Flutterwave webhook")
+        return jsonify({"error": "Failed to process transaction", "details": str(e)}), 500
+
+    return jsonify({
+        "message": "Wallet funded successfully",
+        "amount": amount,
+        "wallet_balance": wallet.balance
+    }), 200

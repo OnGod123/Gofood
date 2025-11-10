@@ -35,8 +35,8 @@ def create_app(config_name=None):
     from app.websocket.bargain_namespace import BargainNamespace
     from app.websocket.delivery_namespace import DeliveryNamespace
     from app.handlers.rider_handler import rider_bp
-    app.register_blueprint(rider_bp)
     from app.websocket.rider_namespace import RiderNamespace
+    from app.handlers.flutterwave_webhook import flutterwave
 
 
 
@@ -56,11 +56,13 @@ def create_app(config_name=None):
     app.register_blueprint(vendor_status_bp)
     app.register_blueprint(moniepoint.monie_bp)
     app.register_blueprint(wallet_bp)
+    app.register_blueprint(rider_bp)
     app.register_blueprint(webhook_bp)
+    app.register_blueprint(flutterwave)
     socketio.on_namespace(BargainNamespace("/bargain"))
     socketio.on_namespace(DeliveryNamespace("/delivery"))
     socketio.on_namespace(RiderNamespace("/rider"))
-
+    seed_central_account()
 
     
 
@@ -68,6 +70,7 @@ def create_app(config_name=None):
     @app.route("/health")
     def health():
         return {"status": "ok"}
+    
 
     @app.route("/cdn-cgi/<path:path>", methods=["GET", "POST"])
     def cdn_ignore(path):

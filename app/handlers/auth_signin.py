@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, redirect, url_for, current_app, render_template
 from flask import Flask
-from app.extensions import db, migrate, socketio, oauth, r
+from app.extensions import init_db, migrate, socketio, oauth, r
 from app.database.user_models import User
 from werkzeug.security import generate_password_hash
 from datetime import datetime

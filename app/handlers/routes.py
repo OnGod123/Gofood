@@ -1,6 +1,6 @@
 
 from flask import Blueprint
-from app.utils.phone_auth import request_login_token, verify_login_token
+from app.handlers.phone_login import request_login_token, verify_login_token
 
 auth_phone = Blueprint("auth_mobile", __name__)
 

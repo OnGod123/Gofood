@@ -22,9 +22,17 @@ class Config:
     CENTRAL_ACCOUNT_NUMBER = os.environ.get("CENTRAL_ACCOUNT_NUMBER", "")
     CENTRAL_ACCOUNT_BANK = os.environ.get("CENTRAL_ACCOUNT_BANK", "Moniepoint")
 
-    # Moniepoint API
-    MONIEPOINT_PAYOUT_URL = os.environ.get("MONIEPOINT_PAYOUT_URL", "")
-    MONIEPOINT_SECRET = os.environ.get("MONIEPOINT_SECRET", "")
+     # MinIO
+    MINIO_ENDPOINT = os.environ.get("MINIO_ENDPOINT", "localhost:9000")
+    MINIO_ACCESS_KEY = os.environ.get("MINIO_ACCESS_KEY", "minioaccesskey")
+    MINIO_SECRET_KEY = os.environ.get("MINIO_SECRET_KEY", "miniosecretkey")
+    MINIO_SECURE = bool(int(os.environ.get("MINIO_SECURE", 0)))
+
+    OAUTH_GOOGLE_CLIENT_ID = os.environ.get("OAUTH_GOOGLE_CLIENT_ID")
+    OAUTH_GOOGLE_CLIENT_SECRET = os.environ.get("OAUTH_GOOGLE_CLIENT_SECRET")
+    OAUTH_FACEBOOK_CLIENT_ID = os.environ.get("OAUTH_FACEBOOK_CLIENT_ID")
+    OAUTH_FACEBOOK_CLIENT_SECRET = os.environ.get("OAUTH_FACEBOOK_CLIENT_SECRET")
+
 
     # Celery
     CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL", "redis://localhost:6379/1")
@@ -50,7 +58,17 @@ class Config:
 
     # Rate Limiting
     RATE_LIMIT = os.environ.get("RATE_LIMIT", "300/hour")
+    WHATSAPP_SECRET = "..."
+    FLUTTERWAVE_SECRET = "..."
+    PAYSTACK_SECRET = "..."
+    API_TOKEN = "..."
 
 
+    MAIL_SERVER = os.environ.get("MAIL_SERVER", "smtp.example.com")
+    MAIL_PORT = int(os.environ.get("MAIL_PORT", 587))
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
-
+    # Environment
+    APP_ENV = os.environ.get("APP_ENV", "development")

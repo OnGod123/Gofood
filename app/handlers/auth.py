@@ -4,7 +4,7 @@ from functools import wraps
 from app.database.user_models import User
 from app.database.signinmodels import Signin
 from flask import Flask
-from app.extensions import db, migrate, socketio, oauth, r
+from app.extensions import init_db, migrate, socketio, oauth, r
 
 
 auth_bp = Blueprint("auth", __name__)
@@ -116,7 +116,7 @@ def signin_post():
 
 from flask import Blueprint, request, redirect, url_for, jsonify, make_response, current_app
 from flask import Flask
-from app.extensions import db, migrate, socketio, oauth, r
+from app.extensions import init_db, migrate, socketio, oauth, r
 from app.database.user_models import User
 from app.database.signinmodels import Signin
 from authlib.integrations.flask_client import OAuth

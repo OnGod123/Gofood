@@ -1,5 +1,5 @@
 from flask import Flask
-from app.extensions import db, migrate, socketio, oauth, r
+from app.extensions import init_db, migrate, socketio, oauth, r
 
 
 def create_app(config_name=None):
@@ -8,12 +8,13 @@ def create_app(config_name=None):
     """
     app = Flask(__name__, static_folder="../static", template_folder="../templates")
     app.config.from_object("config.Config")
-
-    # --- Initialize extensions ---
-    db.init_app(app)
-    migrate.init_app(app, db)
     socketio.init_app(app, cors_allowed_origins="*")
     oauth.init_app(app)
+    db_session = init_db(app)
+
+    @app.teardown_appcontext
+    def shutdown_session(exception=None):
+        db_session.remove()
 
     # --- Import and register Blueprints ---
     from app.handlers.home import home_bp
@@ -65,7 +66,6 @@ def create_app(config_name=None):
     seed_central_account()
 
     
-
     # --- Health Check ---
     @app.route("/health")
     def health():

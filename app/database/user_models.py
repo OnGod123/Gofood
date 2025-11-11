@@ -3,6 +3,7 @@ from sqlalchemy import (
     Column, Integer, String, DateTime, Boolean, JSON, Index, UniqueConstraint
 )
 from app.extensions import Base
+from sqlalchemy.orm import relationship
 
 class User(Base):
     __tablename__ = "users"
@@ -35,9 +36,10 @@ class User(Base):
         UniqueConstraint('google_id', name='uq_users_google_id', sqlite_on_conflict='IGNORE'),
         UniqueConstraint('facebook_id', name='uq_users_facebook_id', sqlite_on_conflict='IGNORE'),
     )
-    wallets = db.relationship("Wallet", backref="user", uselist=False)
-    vendors = db.relationship("Vendor", backref="user", lazy=True)
-    orders = db.relationship("OrderSingle", backref="user", lazy=True)
+    wallets = relationship("Wallet", backref="user", uselist=False)
+    vendors = relationship("Vendor", backref="user", lazy=True)
+    orders = relationship("OrderSingle", backref="user", lazy=True)
+    multiple_orders = relationship("OrderMultiple", back_populates="user", lazy="dynamic")
 
     def to_dict(self):
         return {

@@ -2,9 +2,9 @@ from flask import Blueprint, request, jsonify, session, g, current_app
 from functools import wraps
 import jwt
 from datetime import datetime
-from app.extensions import db, r  # r = Redis instance
+from app.extensions import init_db, r  # r = Redis instance
 from app.database.user_models import User
-from app.database.vendor_models import Vendor  # assuming vendor model exists
+from app.merchants.Database.vendors_data_base import Vendor  # assuming vendor model exists
 
 vendor_activity_bp = Blueprint("vendor_activity", __name__)
 

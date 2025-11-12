@@ -100,7 +100,7 @@ class FoodItem(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     vendor_id = relationship(db.Integer, db.ForeignKey('vendor.id', ondelete="CASCADE"), nullable=false, unique=True)
-    vendor = db.realtionship"vendor", backref="Fooditem", uselist=False)
+    vendor = db.realtionship("vendor", backref="Fooditem", uselist=False)
 
     def to_dict(self):
         return {

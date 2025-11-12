@@ -22,11 +22,11 @@ class Vendor(Base):
     Bussiness_account = Column (Integer, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    user = db.relationship("User", backref="fullname", uselist=False)
+    user = relationship("User", backref="fullname", uselist=False)
     user = relationship("User", back_populates="vendor", cascade="all, delete-orphan")
 
     menu_items = relationship("FoodItem", back_populates="vendor", cascade="all, delete-orphan")
-    merchants = db.relationship("ProfileMerchant", backref="vendor", cascade="all, delete-orphan")
+    merchants = relationship("ProfileMerchant", backref="vendor", cascade="all, delete-orphan")
 
     def to_dict(self, include_menu=False):
         data = {
@@ -99,8 +99,8 @@ class FoodItem(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    vendor_id = relationship(db.Integer, db.ForeignKey('vendor.id', ondelete="CASCADE"), nullable=false, unique=True)
-    vendor = db.realtionship("vendor", backref="Fooditem", uselist=False)
+    vendor_id = Column(Integer, ForeignKey('vendor.id', ondelete="CASCADE"), nullable=False, unique=True)
+    vendor = relationship("vendor", backref="Fooditem", uselist=False)
 
     def to_dict(self):
         return {

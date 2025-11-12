@@ -2,10 +2,10 @@ from flask import Blueprint, request, jsonify, g, url_for
 from datetime import datetime
 from sqlalchemy.exc import SQLAlchemyError
 from app.extensions import Base, r
-from app.merchants.Database.vendors_data_base import FoodItem
-from app.models.user import User, Vendor
+from app.merchants.Database.vendors_data_base import FoodItem, Vendor
+from app.database.user_models import User
 from app.merchants.Database.order import OrderSingle, OrderMultiple
-from app.models.notification import Notification
+from app.database.notification import Notification
 from app.utils.auth import token_required
 from app.utils.tasks import (
     send_notification_async,

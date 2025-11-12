@@ -5,7 +5,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 from app.extensions import Base
-from app.models.user import User
+from app.database.user_models import User
 
 
 # ---------------------- Vendor ----------------------
@@ -19,7 +19,7 @@ class Vendor(Base):
     is_open = Column(Boolean, default=True)  # whether vendor currently open or closed
     opening_time = Column(Time, nullable=True)
     closing_time = Column(Time, nullable=True)
-    Bussiness_account = (Integer, nullable=False)
+    Bussiness_account = Column (Integer, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     user = db.relationship("User", backref="fullname", uselist=False)

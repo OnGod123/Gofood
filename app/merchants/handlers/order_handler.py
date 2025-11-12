@@ -122,7 +122,7 @@ def multiple_order_handler():
 from flask import Blueprint, request, jsonify, g, url_for
 from datetime import datetime
 from sqlalchemy.exc import SQLAlchemyError
-from app.extensions import db, r
+from app.extensions import Base, r
 from app.models.food_item import FoodItem
 from app.models.user import User, Vendor
 from app.models.order import OrderSingle

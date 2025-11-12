@@ -4,9 +4,9 @@ from datetime import datetime
 import jwt
 import uuid
 
-from app.extensions import db, r  # Redis and database
+from app.extensions import Base, r  # Redis and database
 from app.database.user_models import User
-from app.database.vendor_models import Vendor
+from app.merchants.Database.vendors_data_base import Vendor
 
 register_vendor_bp = Blueprint("register_vendor", __name__, url_prefix="/registeras")
 

@@ -5,8 +5,8 @@ from app.extensions import Base, r
 from app.merchants.Database.vendors_data_base import FoodItem, Vendor
 from app.database.user_models import User
 from app.merchants.Database.order import OrderSingle, OrderMultiple
-from app.database.notification import Notification
-from app.utils.auth import token_required
+from app.database.notifications import Notification
+from app.utils.decorators import token_required
 from app.utils.tasks import (
     send_notification_async,
     send_whatsapp_message,
@@ -126,7 +126,7 @@ from app.extensions import Base, r
 from app.models.food_item import FoodItem
 from app.models.user import User, Vendor
 from app.models.order import OrderSingle
-from app.models.notification import Notification
+from app.database.notifications import Notification
 from app.utils.auth import token_required
 from app.utils.tasks import (
     send_notification_async,

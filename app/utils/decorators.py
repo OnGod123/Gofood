@@ -1,24 +1,23 @@
 from functools import wraps
 from flask import request, jsonify, g
-from app.models import User
-from app.utils.jwt_tools import decode_token
+from app.database.user_models import User
+from app.utils.jwt_utils import get_user_from_jwt
 
 def token_required(f):
+    """
+    Flask route decorator to ensure that a valid JWT token is present.
+    Attaches the user info to `g.user` for use in routes.
+    """
     @wraps(f)
     def decorated(*args, **kwargs):
-        token = request.headers.get('Authorization')
-        if not token:
-            return jsonify({"message": "Token is missing"}), 401
+        try:
+            # Extract user info from JWT
+            user_info = get_user_from_jwt()
+            # Attach to Flask `g` object for global access in the request
+            g.user = user_info
+        except PermissionError as e:
+            return jsonify({"error": str(e)}), 401
 
-        payload = decode_token(token)
-        if not payload:
-            return jsonify({"message": "Token is invalid or expired"}), 401
-
-        user = User.query.filter_by(id=payload['user_id']).first()
-        if not user:
-            return jsonify({"message": "User not found"}), 401
-
-        g.current_user = user
         return f(*args, **kwargs)
     return decorated
 

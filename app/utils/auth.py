@@ -1,7 +1,7 @@
 import jwt
 from flask import current_app
-from app.models.user import User
-from app.extensions import db
+from app.database.user_models import User
+from app.extensions import Base
 
 def verify_jwt_socket(token):
     try:

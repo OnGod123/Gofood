@@ -4,7 +4,7 @@ import uuid
 from sqlalchemy.dialects.postgresql import UUID
 from app.extensions import Base as base 
 
-lass Wallet(base):
+class Wallet(base):
     __tablename__ = "wallets"
     id = Column(db.Integer, primary_key=True)
     user_id = Column(db.UUID(as_uuid=True), db.ForeignKey("users.id"), nullable=False, unique=True)

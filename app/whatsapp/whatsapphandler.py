@@ -1,11 +1,11 @@
 try:
-    from app.database.order import OrderSingle
-    from app.database.food_item import FoodItem
+    from app.merchants.Database.order import OrderSingle, OrderMultiple
+    from app.merchants.Database. vendors_data_base import FoodItem
+    from app.merchants.Database.vendors_data_base import Vendor, Profile_Merchant
     from app.database.wallet import Wallet
-    from app.database.vendor import Vendor
-    from app.database.user import User as AppUser
+    from app.database.user_models import User as AppUser
     from app.database.central_account import CentralAccount
-    from app.database.fullname import FullName
+    from app.database.payment_models import FullName
 except Exception as e:
     raise RuntimeError(
         "Replace app.database.* imports with your real models. "
@@ -188,7 +188,7 @@ def whatsapp_webhook():
 import json
 from flask import current_app, session
 from app.extensions import db
-from app.models import AppUser, Wallet
+from app.database.user_models import user as AppUser, Wallet
 
 def process_incoming_whatsapp_message(value: dict, message: dict):
     wa_from = message.get('from')

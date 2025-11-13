@@ -1,19 +1,25 @@
-from flask import Blueprint, request, jsonify, g, url_for
-from datetime import datetime
-from sqlalchemy.exc import SQLAlchemyError
-from app.extensions import Base, r
-from app.merchants.Database.vendors_data_base import FoodItem, Vendor
-from app.database.user_models import User
-from app.merchants.Database.order import OrderSingle, OrderMultiple
-from app.database.notifications import Notification
-from app.utils.decorators import token_required
-from app.utils.tasks import (
+
+try:
+    from flask import Blueprint, request, jsonify, g, url_for
+    from datetime import datetime
+    from sqlalchemy.exc import SQLAlchemyError
+    from app.extensions import Base, r
+    from app.merchants.Database.vendors_data_base import FoodItem, Vendor
+    from app.database.user_models import User
+    from app.merchants.Database.order import OrderSingle, OrderMultiple
+    from app.database.notifications import Notification
+    from app.utils.decorators import token_required
+    from app.utils.tasks import (
     send_notification_async,
     send_whatsapp_message,
     send_email_notification,
-)
-from app.utils.jwt_tools import encode_token  # <-- you must have this or similar helper
-
+    )
+    from app.utils.jwt_tools import encode_token  # <-- you must have this or similar helper
+except ImportError as e:
+    raise RuntimeError(
+        "Replace app.database.* imports with your real models. "
+        "This file expects OrderSingle, FoodItem, Wallet, Vendor, AppUser, CentralAccount, FullName."
+    )
 order_bp = Blueprint("order_bp", __name__)
 
 

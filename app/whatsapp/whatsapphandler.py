@@ -1,10 +1,11 @@
-from app.database.order import OrderSingle
-from app.database.food_item import FoodItem
-from app.database.wallet import Wallet
-from app.database.vendor import Vendor
-from app.database.user import User as AppUser
-from app.database.central_account import CentralAccount
-from app.database.fullname import FullName
+try:
+    from app.database.order import OrderSingle
+    from app.database.food_item import FoodItem
+    from app.database.wallet import Wallet
+    from app.database.vendor import Vendor
+    from app.database.user import User as AppUser
+    from app.database.central_account import CentralAccount
+    from app.database.fullname import FullName
 except Exception as e:
     raise RuntimeError(
         "Replace app.database.* imports with your real models. "

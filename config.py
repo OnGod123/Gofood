@@ -62,6 +62,7 @@ class Config:
     FLUTTERWAVE_SECRET = "..."
     PAYSTACK_SECRET = "..."
     API_TOKEN = "..."
+    DEFAULT_API_VERSION = "v17.0"
 
 
     MAIL_SERVER = os.environ.get("MAIL_SERVER", "smtp.example.com")

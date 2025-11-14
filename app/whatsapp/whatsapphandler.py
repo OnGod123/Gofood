@@ -1,33 +1,40 @@
-try:
-    from app.merchants.Database.order import OrderSingle, OrderMultiple
-    from app.merchants.Database. vendors_data_base import FoodItem
-    from app.merchants.Database.vendors_data_base import Vendor, Profile_Merchant
-    from app.database.wallet import Wallet
-    from app.database.user_models import User as AppUser
-    from app.database.central_account import CentralAccount
-    from app.database.payment_models import FullName
-except Exception as e:
-    raise RuntimeError(
-        "Replace app.database.* imports with your real models. "
-        "This file expects OrderSingle, FoodItem, Wallet, Vendor, AppUser, CentralAccount, FullName."
-    )
+import sys
+import os
 
-class ProcessedMessage(db.Model):
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+from config import Config
+from app.merchants.Database.order import OrderSingle, OrderMultiple
+from app.merchants.Database. vendors_data_base import FoodItem
+from app.merchants.Database.vendors_data_base import Vendor, Profile_Merchant
+from app.database.wallet import Wallet
+from app.database.user_models import User as AppUser
+from app.database.payment_models import CentralAccount
+from app.database.payment_models import FullName
+from app.extensions import Base as base
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, Text
+from datetime import datetime, timezone
+
+
+class ProcessedMessage(base):
     __tablename__ = 'processed_messages'
-    id = db.Column(db.Integer, primary_key=True)
-    message_id = db.Column(db.String(255), unique=True, index=True, nullable=False)
-    processed_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    id = Column(Integer, primary_key=True)
+    message_id = Column(String(255), unique=True, index=True, nullable=False)
+    processed_at = Column(DateTime, nullable=False, default=datetime.utcnow)
 
 # -------------------------
 # WhatsApp client
 # -------------------------
 class WhatsAppClient:
-    def __init__(self, token: str, phone_number_id: str, api_version: str = DEFAULT_API_VERSION):
+    def __init__(self, token: str, phone_number_id: str, api_version: str):
         if not token or not phone_number_id:
             raise ValueError("WHATSAPP_TOKEN and META_PHONE_NUMBER_ID must be set")
         self.token = token
         self.phone_number_id = phone_number_id
-        self.api_version = api_version
+        self.api_version = api_version or Config.DEFAULT_API_VERSION
         self.base = f"https://graph.facebook.com/{self.api_version}"
 
     def _headers(self):
@@ -297,65 +304,148 @@ def process_incoming_whatsapp_message(value: dict, message: dict):
 
 def _attempt_place_order_and_handle_response(user: AppUser, wa_client: WhatsAppClient):
     """
-    This helper reads the current Flask test_request_context json payload
-    and tries to place the order (using whatsapp_order() logic). If insufficient funds,
-    send funding instructions via WhatsApp including a funding URL.
+    Attempts to place an order and sends WhatsApp notifications for success or failures.
     """
-    try:
-        resp = whatsapp_order()  # uses session['user_id']
-        # parse response
-        if isinstance(resp, tuple):
-            body, status = resp[0].get_json(), resp[1]
-        else:
-            body = resp.get_json() if hasattr(resp, 'get_json') else {}
-            status = resp.status_code if hasattr(resp, 'status_code') else 200
-    finally:
-        session.pop('user_id', None)
-
+    payload = request.get_json() or {}
     wa_to = user.phone
-    if status in (200, 201):
-        # Success
-        wa_client.send_text(wa_to, f"✅ Order placed. ID: {body.get('order_id')} Total: ₦{body.get('total_amount')}")
-        return {'ok': True, 'body': body}
-    else:
-        # If insufficient balance, the whatsapp_order returns 400 with 'Insufficient balance'
-        err = body.get('error') if isinstance(body, dict) else str(body)
-        if isinstance(err, str) and 'Insufficient balance' in err:
-            # Prepare funding instructions and URL
-            data = request.get_json() or {}
-            # try to read full_name from payload or FullName model
-            full_name = data.get('full_name') or (FullName.query.filter_by(user_id=user.id).first().full_name if FullName.query.filter_by(user_id=user.id).first() else '')
-            frontend_fund_url = current_app.config.get('FRONTEND_FUND_URL')
-            funding_url = make_funding_url(frontend_fund_url or current_app.config.get('BASE_URL', ''), user.phone, full_name or '')
-            # Get central account details
-            central = CentralAccount.query.first()
-            if central:
-                instr_text = (
-                    f"❗ Insufficient funds to place your order.\n\n"
-                    f"• Fund your wallet using:\n"
-                    f"Bank: {central.bank_name}\n"
-                    f"Account: {central.account_number}\n"
-                    f"• Narration: {full_name} | {user.phone}\n\n"
-                    f"Quick link to fund wallet: {funding_url}\n\n"
-                    f"After you pay, your wallet will be updated automatically."
-                )
-            else:
-                instr_text = (
-                    f"❗ Insufficient funds to place your order.\n\n"
-                    f"Please top up your wallet. Quick link: {funding_url}"
-                )
-            try:
-                wa_client.send_text(wa_to, instr_text)
-            except Exception:
-                current_app.logger.exception("Failed to send funding instructions to %s", wa_to)
-            return {'ok': False, 'error': 'insufficient_balance'}
+
+    try:
+        order_info = create_order(user, payload)
+        # Success message
+        wa_client.send_text(
+            wa_to,
+            f"✅ Order placed. ID: {order_info['order_id']} Total: ₦{order_info['total_amount']}"
+        )
+        return {'ok': True, 'body': order_info}
+
+    except InsufficientBalance as e:
+        # Prepare funding instructions
+        full_name = payload.get('full_name') or (
+            FullName.query.filter_by(user_id=user.id).first().full_name
+            if FullName.query.filter_by(user_id=user.id).first() else ''
+        )
+        frontend_fund_url = current_app.config.get('FRONTEND_FUND_URL')
+        funding_url = make_funding_url(
+            frontend_fund_url or current_app.config.get('BASE_URL', ''),
+            user.phone,
+            full_name or ''
+        )
+        central = CentralAccount.query.first()
+        if central:
+            instr_text = (
+                f"❗ Insufficient funds to place your order.\n\n"
+                f"• Fund your wallet using:\n"
+                f"Bank: {central.bank_name}\n"
+                f"Account: {central.account_number}\n"
+                f"• Narration: {full_name} | {user.phone}\n\n"
+                f"Quick link to fund wallet: {funding_url}\n\n"
+                f"After you pay, your wallet will be updated automatically."
+            )
         else:
-            # Generic failure
-            try:
-                wa_client.send_text(wa_to, f"❌ Failed to place order: {err}")
-            except Exception:
-                current_app.logger.exception("Failed to send error text to %s", wa_to)
-            return {'ok': False, 'error': 'other', 'detail': err}
+            instr_text = f"❗ Insufficient funds. Quick link: {funding_url}"
+
+        try:
+            wa_client.send_text(wa_to, instr_text)
+        except Exception:
+            current_app.logger.exception("Failed to send funding instructions to %s", wa_to)
+
+        return {'ok': False, 'error': 'insufficient_balance'}
+
+    except Exception as e:
+        err_msg = str(e)
+        try:
+            wa_client.send_text(wa_to, f"❌ Failed to place order: {err_msg}")
+        except Exception:
+            current_app.logger.exception("Failed to send error text to %s", wa_to)
+        return {'ok': False, 'error': 'other', 'detail': err_msg}
+
+def create_order(user: AppUser, payload: dict) -> dict:
+    """
+    Attempts to create an order for the given user using the payload dict.
+    Returns a dict with order details or raises an exception on failure.
+    """
+    vendor_name = payload.get('vendor_name')
+    items_data = payload.get('items', [])
+
+    if not (vendor_name and isinstance(items_data, list) and items_data):
+        raise ValueError("Missing vendor_name or items")
+
+    vendor = Vendor.query.filter_by(name=vendor_name).first()
+    if not vendor:
+        raise ValueError(f"Vendor '{vendor_name}' not found")
+
+    food_names = [it.get('food_name') for it in items_data if it.get('food_name')]
+    if not food_names:
+        raise ValueError("No valid food names provided")
+
+    food_items = FoodItem.query.filter(
+        FoodItem.name.in_(food_names),
+        FoodItem.vendor_id == vendor.id,
+        FoodItem.is_available == True
+    ).all()
+    if not food_items:
+        raise ValueError("No available items found for this vendor")
+
+    total_amount = Decimal('0.00')
+    order_details = []
+
+    for it in items_data:
+        name = it.get('food_name')
+        if not name:
+            continue
+        food = next((f for f in food_items if f.name == name), None)
+        if not food:
+            continue
+        qty = int(it.get('quantity', 1))
+        price = Decimal(str(food.price or '0.00'))
+        subtotal = price * qty
+        total_amount += subtotal
+        order_details.append({
+            'food_id': food.id,
+            'name': food.name,
+            'price': str(price),
+            'quantity': qty,
+            'subtotal': str(subtotal)
+        })
+
+    if not order_details:
+        raise ValueError("None of the requested items are available.")
+
+    # Atomic debit + order creation
+    wallet = Wallet.query.filter_by(user_id=user.id).with_for_update().first()
+    if not wallet:
+        raise ValueError("Wallet not found")
+    if Decimal(str(wallet.balance)) < total_amount:
+        raise InsufficientBalance(
+            wallet_balance=wallet.balance, total_amount=total_amount
+        )
+
+    wallet.balance = str(Decimal(str(wallet.balance)) - total_amount)
+    order = OrderSingle(
+        user_id=user.id,
+        item_data=order_details,
+        total=str(total_amount),
+        created_at=datetime.now(timezone.utc)
+    )
+    db.session.add(wallet)
+    db.session.add(order)
+    db.session.commit()
+
+    return {
+        'order_id': order.id,
+        'total_amount': str(total_amount),
+        'remaining_balance': str(wallet.balance),
+        'items': order_details
+    }
+
+
+class InsufficientBalance(Exception):
+    def __init__(self, wallet_balance, total_amount):
+        self.wallet_balance = wallet_balance
+        self.total_amount = total_amount
+        super().__init__("Insufficient balance")
+
+
 
 # ----- main order endpoint (same logic but callable directly) -----
 @whatsapp_bp.route('/order', methods=['POST'])

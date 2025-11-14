@@ -1,6 +1,9 @@
 import sys
 import os
-
+from flask import Blueprint
+from functools import wraps
+from app.extensions import limiter
+from flask import current_app
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if PROJECT_ROOT not in sys.path:
@@ -195,7 +198,8 @@ def whatsapp_webhook():
 import json
 from flask import current_app, session
 from app.extensions import db
-from app.database.user_models import user as AppUser, Wallet
+from app.database.user_models import User as AppUser
+from app.database.wallet import Wallet
 
 def process_incoming_whatsapp_message(value: dict, message: dict):
     wa_from = message.get('from')

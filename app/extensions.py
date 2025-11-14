@@ -18,7 +18,11 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
+from flask_sqlalchemy import SQLAlchemy
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
+db = SQLAlchemy()
 socketio = SocketIO()
 migrate = Migrate()
 oauth = OAuth()

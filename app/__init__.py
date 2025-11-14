@@ -1,6 +1,6 @@
 from flask import Flask
 from app.extensions import init_db, migrate, socketio, oauth, r
-
+from app.extensions import db, limiter
 
 def create_app(config_name=None):
     """
@@ -11,6 +11,8 @@ def create_app(config_name=None):
     socketio.init_app(app, cors_allowed_origins="*")
     oauth.init_app(app)
     db_session = init_db(app)
+    limiter.init_app(app)
+
 
     @app.teardown_appcontext
     def shutdown_session(exception=None):

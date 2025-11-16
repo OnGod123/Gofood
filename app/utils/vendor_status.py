@@ -1,8 +1,7 @@
-# app/utils/vendor_status.py
 from functools import wraps
 from flask import jsonify, g, request, current_app
 from app.extensions import r, db, socketio
-from app.database.vendor_models import Vendor  # adjust path
+from app.merchants.Database.vendors_data_base import Vendor  # adjust path
 import json
 
 VENDOR_STATUS_TTL = 300  # seconds

@@ -3,11 +3,12 @@ try:
     from flask import Blueprint, request, jsonify, g, url_for
     from datetime import datetime
     from sqlalchemy.exc import SQLAlchemyError
+    from app.utils.vendor_status import vendor_must_be_open
     from app.extensions import Base, r
     from app.merchants.Database.vendors_data_base import FoodItem, Vendor
     from app.database.user_models import User
     from app.merchants.Database.order import OrderSingle, OrderMultiple
-    from app.database.notifications import Notification
+    from app.merchants.Database.notifications import Notification
     from app.utils.decorators import token_required
     from app.utils.tasks import (
     send_notification_async,
@@ -104,7 +105,7 @@ def multiple_order_handler():
             jwt_token = None
         else:
             # Customer goes to the payment URL — with encoded order ID
-            jwt_token = encode_token({"order_id": order.id})
+            jwt_token = encode_order_id({"order_id": order.id})
             redirect_url = url_for(
                 "payment.start_payment",
                 order_id=order.id,
@@ -129,18 +130,18 @@ from flask import Blueprint, request, jsonify, g, url_for
 from datetime import datetime
 from sqlalchemy.exc import SQLAlchemyError
 from app.extensions import Base, r
-from app.models.food_item import FoodItem
-from app.models.user import User, Vendor
-from app.models.order import OrderSingle
-from app.database.notifications import Notification
-from app.utils.auth import token_required
+from app.merchants.Database.vendors_data_base import FoodItem, Vendor
+from app.database.user_models import User
+from app.merchants.Database.order import OrderSingle
+from app.merchants.Database.notifications import Notification
+from app.utils.decorators import token_required
 from app.utils.tasks import (
     send_notification_async,
     send_whatsapp_message,
     send_email_notification,
 )
 from app.utils.jwt_tools import encode_token  # <-- import your JWT utility
-from app.utils.decorators import vendor_must_be_open  # if not already imported
+from app.utils.vendor_status import vendor_must_be_open
 
 order_bp = Blueprint("order_bp", __name__)
 
@@ -212,7 +213,7 @@ def single_order_handler():
             jwt_token = None
         else:
             # Customer goes to payment with JWT-encoded order ID
-            jwt_token = encode_token({"order_id": order.id})
+            jwt_token = encode_order_id({"order_id": order.id})
             redirect_url = url_for(
                 "payment.start_payment",
                 order_id=order.id,

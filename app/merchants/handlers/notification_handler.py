@@ -1,11 +1,11 @@
-# app/merchant/handlers/notifications.py
+
 from flask import Blueprint, request, jsonify, url_for
 from app.extensions import db, r
-from app.merchant.database.notifications import Notification
-from app.models.food_item import FoodItem
-from app.models.order import OrderSingle, OrderMultiple
-from app.models.user import User
-from app.tasks.notification_tasks import (
+from app.merchants.Database.notifications import Notification
+from app.merchants.Database.vendors_data_base import FoodItem
+from app.merchants.Database.order import OrderSingle, OrderMultiple
+from app.database.user_models import User
+from app.utils.tasks import (
     send_notification_async, send_whatsapp_message, send_email_notification
 )
 

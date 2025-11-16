@@ -33,7 +33,7 @@ class BargainMessage(Base):
     sender_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     recipient_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     message = Column(String(512), nullable=False)
-    metadata = Column(JSON, nullable=True)
+    meta = Column(JSON, nullable=True)
     sequence_id = Column(Integer, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 

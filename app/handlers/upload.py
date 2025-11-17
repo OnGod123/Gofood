@@ -3,8 +3,8 @@ from flask import Blueprint, request, jsonify, current_app
 from werkzeug.utils import secure_filename
 from app.utils.file_utils import validate_image
 from app.utils.jwt_utils import get_user_from_jwt
-from app.database.models.picture import Picture
-from app.extensions import db
+from app.database.picture import Picture
+from app.extensions import Base
 
 upload_bp = Blueprint("upload", __name__)
 

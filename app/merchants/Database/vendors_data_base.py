@@ -98,9 +98,10 @@ class FoodItem(Base):
 
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    price = Column(Float, nullable=False)
 
-    vendor_id = Column(Integer, ForeignKey('vendor.id', ondelete="CASCADE"), nullable=False, unique=True)
-    vendor = relationship("vendor", backref="Fooditem", uselist=False)
+    vendor = relationship("Vendor", backref="food_items", lazy="joined")
+    merchant = relationship("Merchant", backref="food_items", lazy="joined")
 
     def to_dict(self):
         return {

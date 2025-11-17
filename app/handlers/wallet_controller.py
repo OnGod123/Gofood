@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.extensions import db
-from app.models.wallet import Wallet, Transaction
+from app.database.wallet import Wallet, Transaction
 from app.utils.jwt_utils import verify_jwt
 import uuid
 

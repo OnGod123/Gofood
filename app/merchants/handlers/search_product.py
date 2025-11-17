@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.extensions import db, r
-from app.database.models import FoodItem
+from app.merchants.Database.vendors_data_base import FoodItem
 from app.utils.minio_utils import get_minio_file_url
 import json
 from datetime import timedelta

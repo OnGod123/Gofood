@@ -1,6 +1,9 @@
 from flask import Blueprint, jsonify, request
 from app.extensions import db, r
-from app.database.models import Order, Payment, Vendor, Wallet, User
+from app.merchants.Database import Order
+from app.database.models import PaymentTransaction
+from app.merchants.Database import Vendor
+from app.database.user_models import  User
 from app.utils.auth import verify_jwt_token
 from app.utils.token_service import generate_otp, verify_otp
 from app.utils.services import send_sms
@@ -8,7 +11,7 @@ from datetime import datetime
 import uuid
 from flask import Blueprint, jsonify, request
 from app.extensions import db
-from app.models.wallet import Wallet, Transaction
+from app.database.wallet import Wallet, Transaction
 from app.utils.jwt_utils import verify_jwt
 import uuid
 

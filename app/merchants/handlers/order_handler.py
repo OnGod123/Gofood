@@ -81,6 +81,8 @@ def multiple_order_handler():
             )
             db.session.add(notif)
             notif_objects.append(notif)
+            # Delete previous single orders for this user
+        OrderSingle.query.filter_by(user_id=g.user.id).delete()
         db.session.commit()
 
         # =============== REDIS + CELERY ===============
@@ -174,6 +176,8 @@ def single_order_handler():
             created_at=datetime.utcnow(),
         )
         db.session.add(order)
+        # Delete previous single orders for this user
+        OrderSingle.query.filter_by(user_id=g.user.id).delete()
         db.session.commit()
 
         # =============== CREATE NOTIFICATION ===============

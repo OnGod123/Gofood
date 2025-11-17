@@ -27,7 +27,7 @@ def create_app(config_name=None):
     from app.merchants.handlers.register_vendor import register_vendor_bp
     from app.merchants.handlers.order_handler import order_bp
     from app.merchants.handlers.notification_handler import notification_bp
-    from app.handlers.vendor_dashboard import vendor_bp
+    from app.handlers.search_vendors import vendor_bp
     from app.merchants.handlers.search_handler import product_search_bp
     from app.handlers.payment_wall import wallet_payment_bp
     from app.handlers.store_handler import store_bp
@@ -40,6 +40,7 @@ def create_app(config_name=None):
     from app.handlers.rider_handler import rider_bp
     from app.websocket.rider_namespace import RiderNamespace
     from app.handlers.flutterwave_webhook import flutterwave
+
 
 
 

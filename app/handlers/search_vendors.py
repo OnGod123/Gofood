@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.extensions import db, r
-from app.database.models import Vendor  # adjust import path as needed
+from app.merchants.Database.vendors_data_base import Vendor  
 import json
 from datetime import timedelta
 

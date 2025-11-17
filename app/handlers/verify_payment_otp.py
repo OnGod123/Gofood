@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import request, jsonify, g
-from app.models.user import User
+from app.database.user_models import User
 from app.utils.services import send_sms
 from app.utils.token_service import send_otp
 

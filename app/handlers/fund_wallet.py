@@ -3,8 +3,9 @@ from flask import Blueprint, request, jsonify
 from threading import Timer
 from datetime import datetime
 from app.extensions import db
-from app.models import User, FullName, CentralAccount
-from app.sms_processor import process_incoming_sms  # your handler
+from app.database.user_models import User 
+from app.database.payment_models import FullName, CentralAccount
+from app.sms_processor import process_incoming_sms  
 from app.utils.services import send_sms
 
 central_bp = Blueprint("central", __name__, url_prefix="/central")

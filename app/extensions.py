@@ -21,8 +21,8 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from flask_sqlalchemy import SQLAlchemy
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from minio import Minio
 
-db = SQLAlchemy()
 socketio = SocketIO()
 migrate = Migrate()
 oauth = OAuth()
@@ -56,3 +56,13 @@ def init_db(app):
     Base.metadata.bind = engine
     session_factory = sessionmaker(bind=engine)
     return scoped_session(session_factory)
+
+
+def init_minio(app_config):
+    """Initialize and return MinIO client using app config."""
+    return Minio(
+        endpoint=app_config.MINIO_ENDPOINT,
+        access_key=app_config.MINIO_ACCESS_KEY,
+        secret_key=app_config.MINIO_SECRET_KEY,
+        secure=app_config.MINIO_SECURE
+    )

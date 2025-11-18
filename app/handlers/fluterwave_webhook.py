@@ -1,7 +1,6 @@
-# app/routes/webhook_routes.py
 from flask import Blueprint, request, jsonify, current_app
 from datetime import datetime
-from app.extensions import db
+from app.extensions import Base
 from app.models import Wallet, PaymentTransaction, Transaction
 from app.payments.factory import get_provider
 
@@ -93,12 +92,12 @@ def flutterwave_webhook():
             created_at=datetime.utcnow(),
         )
 
-        db.session.add_all([debit_txn, credit_txn])
-        db.session.commit()
+        session.add_all([debit_txn, credit_txn])
+        session.commit()
         current_app.logger.info(f"Wallet funded successfully for {wallet.user.full_name}")
 
     except Exception as e:
-        db.session.rollback()
+        session.rollback()
         current_app.logger.exception("Error processing Flutterwave webhook")
         return jsonify({"error": "Failed to process transaction", "details": str(e)}), 500
 

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, render_template
 from app.extensions import db
-from app.database.models import FoodItem
+from app.merchants.Database.vendors_data_base import FoodItem
 from app.utils.minio_utils import upload_to_minio, get_minio_file_url
 from cachetools import TTLCache
 from datetime import datetime

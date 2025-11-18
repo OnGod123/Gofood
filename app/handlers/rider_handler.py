@@ -2,8 +2,6 @@ from flask import Blueprint, request, jsonify
 from app.extensions import db
 from app.database.user_models import User
 from app.database.rider_models import Rider
-
-rider_bp = Blueprint("rider", __name__, url_prefix="/rider")
 from flask import Blueprint, request, jsonify, render_template
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
@@ -11,9 +9,8 @@ from app.extensions import db
 from app.database.user_models import User
 from app.database.rider_models import Rider
 
+
 rider_bp = Blueprint("rider", __name__, url_prefix="/rider")
-
-
 # ------------------------
 # Register Rider (GET + POST)
 # ------------------------

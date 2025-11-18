@@ -73,3 +73,12 @@ class Config:
 
     # Environment
     APP_ENV = os.environ.get("APP_ENV", "development")
+    TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
+    TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+    TWILIO_FROM_NUMBER = os.getenv("TWILIO_FROM_NUMBER")
+
+    MINIO_ENDPOINT = os.environ.get("MINIO_ENDPOINT", "localhost:9000")
+    MINIO_ACCESS_KEY = os.environ.get("MINIO_ACCESS_KEY", "minioaccesskey")
+    MINIO_SECRET_KEY = os.environ.get("MINIO_SECRET_KEY", "miniosecretkey")
+    MINIO_SECURE = bool(int(os.environ.get("MINIO_SECURE", "0")))
+

@@ -1,8 +1,7 @@
-# app/routes/webhook_routes.py
 from flask import Blueprint, request, jsonify, current_app
 from datetime import datetime
 from app.extensions import db
-from app.models import Wallet, PaymentTransaction, Transaction
+from app.database import Wallet, PaymentTransaction, Transaction
 from app.payments.factory import get_provider
 
 webhook_bp = Blueprint("webhook", __name__, url_prefix="/webhook")
@@ -39,7 +38,6 @@ def payment_webhook():
     if not wallet:
         return jsonify({"error": "Wallet not found for user"}), 404
 
-    # credit wallet
     wallet.credit(result["amount"])
     txn.processed = True
     txn.processed_at = datetime.utcnow()
@@ -53,10 +51,10 @@ def payment_webhook():
         created_at=datetime.utcnow()
     )
 
-    db.session.add(wallet)
-    db.session.add(txn)
-    db.session.add(log_tx)
-    db.session.commit()
+    session.add(wallet)
+    session.add(txn)
+    session.add(log_tx)
+    session.commit()
 
     return jsonify({"message": "Wallet funded successfully", "user_id": txn.target_user_id, "amount": result["amount"]}), 200
 

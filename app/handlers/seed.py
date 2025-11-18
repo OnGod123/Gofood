@@ -1,6 +1,6 @@
 from datetime import datetime
-from app.extensions import db
-from app.models import CentralAccount
+from app.extensions import Base
+from app.database.payment_model import CentralAccount
 
 def seed_central_account():
     """Create Moniepoint central account if missing"""
@@ -16,7 +16,7 @@ def seed_central_account():
         created_at=datetime.utcnow(),
         updated_at=datetime.utcnow(),
     )
-    db.session.add(account)
-    db.session.commit()
+    session.add(account)
+    session.commit()
     print("✅ Moniepoint central account seeded.")
 

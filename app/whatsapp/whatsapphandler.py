@@ -197,7 +197,7 @@ def whatsapp_webhook():
     return '', 200
 import json
 from flask import current_app, session
-from app.extensions import db
+from app.extensions import Base
 from app.database.user_models import User as AppUser
 from app.database.wallet import Wallet
 

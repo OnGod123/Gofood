@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import jsonify, g, request, current_app
-from app.extensions import r, db, socketio
+from app.extensions import r, Base, socketio
 from app.merchants.Database.vendors_data_base import Vendor  # adjust path
 import json
 

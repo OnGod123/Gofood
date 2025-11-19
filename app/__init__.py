@@ -1,7 +1,7 @@
 from flask import Flask
 from app.extensions import init_db, migrate, socketio, oauth, r
-from app.extensions import db, limiter
-from app.config import Config
+from app.extensions import Base, limiter
+from config import Config
 from app.extensions import init_minio
 
 
@@ -16,7 +16,7 @@ def create_app(config_name=None):
     oauth.init_app(app)
     db_session = init_db(app)
     limiter.init_app(app)
-    minio_client = init_minio(app.config)
+    minio_client = init_minio(Config)
 
 
 

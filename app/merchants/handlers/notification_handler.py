@@ -1,6 +1,6 @@
 
 from flask import Blueprint, request, jsonify, url_for
-from app.extensions import db, r
+from app.extensions import Base, r
 from app.merchants.Database.notifications import Notification
 from app.merchants.Database.vendors_data_base import FoodItem
 from app.merchants.Database.order import OrderSingle, OrderMultiple

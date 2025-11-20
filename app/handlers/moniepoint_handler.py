@@ -1,4 +1,3 @@
-# app/handlers/moniepoint.py
 import json
 from flask import Blueprint, request, jsonify, current_app, render_template, url_for
 from app.extensions import db, r
@@ -28,117 +27,132 @@ def topup_view():
     return render_template("wallet_topup.html")
 
 
-@monie_bp.route("/webhook/moniepoint", methods=["POST"])
-def moniepoint_webhook():
+@monnify_bp.route("/api/monnify/payment-complete", methods=["POST"])
+def monnify_payment_complete():
     """
-    Webhook endpoint Moniepoint will call when a payment is made to the central account.
-    Expected payload (example, adapt to provider):
-    {
-      "tx_ref": "abc123",
-      "amount": 2000,
-      "currency": "NGN",
-      "status": "SUCCESS",
-      "narration": "Payment for topup",
-      "payer_name": "John Doe",
-      "provider_account": "0812345678",
-      ...
-    }
+    DIRECT FLOW:
+      1. Frontend sends Monnify SDK response to backend
+      2. Save incoming payment into central account
+      3. Try to match user using customer name
+      4. If matched → debit central & credit user wallet
+      5. If NOT matched → leave money in central (manual reconciliation)
     """
-    try:
-        payload = request.get_json(force=True)
-    except Exception:
-        return jsonify({"error": "invalid payload"}), 400
 
-    # TODO: validate signature using provider's shared secret
-    # if not validate_moniepoint_signature(request): return 403
+    # -------------------------------------------
+    # Read JSON payload
+    # -------------------------------------------
+    payload = request.get_json(force=True)
+    if not payload:
+        return jsonify({"error": "Invalid JSON"}), 400
 
-    provider_txn_id = payload.get("tx_ref") or payload.get("id") or payload.get("reference")
-    amount = float(payload.get("amount", 0))
-    status = payload.get("status", "").lower()
-    payer_name = (payload.get("payer_name") or payload.get("narration") or "").strip()
+    tx_ref = payload.get("transactionReference")
+    amount = float(payload.get("amountPaid", 0))
+    status = payload.get("paymentStatus", "").lower()
+    customer_name = payload.get("customerName", "").strip()
 
-    if status != "success" and status != "successful":
-        # Ignore pending / failed for now
-        current_app.logger.info("monie webhook non-success status: %s", status)
-        return jsonify({"message": "ignored non-successful status"}), 200
+    # -------------------------------------------
+    # Only successful payments matter
+    # -------------------------------------------
+    if status != "paid":
+        return jsonify({"message": "Ignored non-paid transaction"}), 200
 
-    # idempotency: check if provider_txn_id processed
-    existing = PaymentTransaction.query.filter_by(provider="moniepoint", provider_txn_id=provider_txn_id).first()
-    if existing:
-        current_app.logger.info("duplicate webhook received: %s", provider_txn_id)
+    # -------------------------------------------
+    # Prevent duplicates (idempotency)
+    # -------------------------------------------
+    exists = PaymentTransaction.query.filter_by(
+        provider="monnify",
+        provider_txn_id=tx_ref
+    ).first()
+
+    if exists:
         return jsonify({"message": "duplicate"}), 200
 
-    # create transaction record (incoming to central account)
-    central = get_central_account("moniepoint")
-    pt = PaymentTransaction(
-        provider="moniepoint",
-        provider_txn_id=provider_txn_id,
+    central = get_central_account("monnify")
+
+    incoming_tx = PaymentTransaction(
+        provider="monnify",
+        provider_txn_id=tx_ref,
         amount=amount,
-        currency=payload.get("currency", "NGN"),
+        currency="NGN",
         direction="in",
         central_account_id=central.id,
         metadata=payload,
         processed=False,
         created_at=datetime.utcnow()
     )
-    db.session.add(pt)
 
-    # update central account balance
-    central.balance = (central.balance or 0.0) + amount
+    db.session.add(incoming_tx)
+
+    # Update central balance
+    central.balance = float(central.balance) + amount
     db.session.add(central)
     db.session.commit()
 
-    # attempt to match payer_name with FullName table
-    matched = None
-    if payer_name:
-        matched = FullName.query.filter(FullName.full_name.ilike(payer_name)).first()
-        if not matched:
-            # try fuzzy matching? For now exact-ish ilike
-            matched = FullName.query.filter(FullName.full_name.ilike(f"%{payer_name}%")).first()
+    matched = FullName.query.filter(
+        FullName.full_name.ilike(f"%{customer_name}%")
+    ).first()
 
-    if matched:
-        # credit user's wallet immediately
-        user = matched.user
-        # get/create wallet
-        wallet = Wallet.query.filter_by(user_id=user.id).first()
-        if not wallet:
-            wallet = Wallet(user_id=user.id, balance=0.0)
-            db.session.add(wallet)
+    if not matched:
+        # Unmatched → Leave money in central account
+        incoming_tx.processed = False
+        db.session.commit()
 
-        wallet.credit(amount)
+        # Notify admin
+        r.publish("payments", json.dumps({
+            "event": "unmatched_payment",
+            "customer_name": customer_name,
+            "amount": amount,
+            "tx_id": incoming_tx.id
+        }))
+
+        return jsonify({
+            "message": "Payment received but not matched",
+            "tx_id": incoming_tx.id,
+            "central_balance": central.balance
+        }), 200
+
+    user = matched.user
+    wallet = Wallet.query.filter_by(user_id=user.id).first()
+    if not wallet:
+        wallet = Wallet(user_id=user.id, balance=0.0)
         db.session.add(wallet)
 
-        # record distribution transaction
-        dist = PaymentTransaction(
-            provider="internal",
-            provider_txn_id=f"dist:{provider_txn_id}:{user.id}",
-            amount=amount,
-            currency="NGN",
-            direction="distribute",
-            central_account_id=central.id,
-            target_user_id=user.id,
-            metadata={"source_provider_txn_id": provider_txn_id, "payer_name": payer_name},
-            processed=True,
-            created_at=datetime.utcnow(),
-            processed_at=datetime.utcnow()
-        )
-        db.session.add(dist)
+    wallet.credit(amount)
+    db.session.add(wallet)
 
-        # mark original tx processed
-        pt.processed = True
-        pt.processed_at = datetime.utcnow()
-        db.session.commit()
+    dist_tx = PaymentTransaction(
+        provider="internal",
+        provider_txn_id=f"dist:{tx_ref}:{user.id}",
+        amount=amount,
+        currency="NGN",
+        direction="distribute",
+        central_account_id=central.id,
+        target_user_id=user.id,
+        metadata={"source_tx": tx_ref},
+        processed=True,
+        created_at=datetime.utcnow(),
+        processed_at=datetime.utcnow()
+    )
+    db.session.add(dist_tx)
 
-        # Optionally publish to redis for frontends / reconciliation
-        r.publish("payments", json.dumps({"event": "topup", "user_id": user.id, "amount": amount, "tx": pt.id}))
+    # Mark incoming payment as processed
+    incoming_tx.processed = True
+    incoming_tx.processed_at = datetime.utcnow()
 
-        return jsonify({"message": "credited user wallet", "user_id": user.id}), 200
-    else:
-        # not matched -> leave as central_account balance. mark txn for manual reconciliation.
-        pt.processed = False
-        db.session.commit()
-        current_app.logger.warning("Unmatched incoming payment: %s, payer_name=%s", provider_txn_id, payer_name)
-        # notify ops via pubsub or email
-        r.publish("payments", json.dumps({"event": "unmatched_topup", "amount": amount, "payer_name": payer_name, "tx": pt.id}))
-        return jsonify({"message": "received but not matched", "tx_id": pt.id}), 200
+    # Deduct amount from central since it's now moved to user wallet
+    central.balance = float(central.balance) - amount
 
+    db.session.commit()
+
+    r.publish("payments", json.dumps({
+        "event": "wallet_topup",
+        "user_id": user.id,
+        "amount": amount,
+        "wallet_balance": wallet.balance
+    }))
+
+    return jsonify({
+        "message": "Wallet credited successfully",
+        "user_id": user.id,
+        "wallet_balance": wallet.balance
+    }), 200

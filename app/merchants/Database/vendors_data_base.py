@@ -24,6 +24,9 @@ class Vendor(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     user = relationship("User", backref="fullname", uselist=False)
     user = relationship("User", back_populates="vendor", cascade="all, delete-orphan")
+    bank_code = Column(String(16), nullable=False)
+    account_number = Column(String(20), nullable=False)
+
 
     menu_items = relationship("FoodItem", back_populates="vendor", cascade="all, delete-orphan")
     merchants = relationship("ProfileMerchant", backref="vendor", cascade="all, delete-orphan")
@@ -91,6 +94,8 @@ class FoodItem(Base):
     description = Column(String(512), nullable=True)
     price = Column(Float, nullable=False)
     image_url = Column(String(512), nullable=True)  # path or URL to item picture
+    item_name = Column(String(255), nullable=False)
+    item_description = Column(String(512)
 
     available_from = Column(Time, nullable=True)
     available_to = Column(Time, nullable=True)

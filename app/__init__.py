@@ -35,7 +35,7 @@ def create_app(config_name=None):
     from app.merchants.handlers.notification_handler import notification_bp
     from app.handlers.search_vendors import vendor_bp
     from app.merchants.handlers.search_product import search_bp
-    from app.handlers.payment_wall import wallet_payment_bp
+    from app.handlers.payment_wallet import wallet_payment_bp
     from app.handlers.store_handler import store_bp
     from app.merchants.handlers.wishlist_handler import wishlist_bp
     from app.merchants.handlers.vendor_status_handler import vendor_status_bp

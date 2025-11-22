@@ -95,7 +95,7 @@ class FoodItem(Base):
     price = Column(Float, nullable=False)
     image_url = Column(String(512), nullable=True)  # path or URL to item picture
     item_name = Column(String(255), nullable=False)
-    item_description = Column(String(512)
+    item_description = Column(String(512), nullable=False)
 
     available_from = Column(Time, nullable=True)
     available_to = Column(Time, nullable=True)

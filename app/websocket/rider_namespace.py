@@ -10,6 +10,19 @@ GLOBAL_ROOM = "all_participants"
 class RiderNamespace(Namespace):
     def on_connect(self):
         """Authenticate if needed, then join the global room."""
+         token = request.headers.get("Authorization") or request.args.get("token") or request.json.get("token")
+
+        if token.startswith("Bearer "):
+        token = token.split(" ")[1]
+
+        try:
+            user = decode_token(token)
+            g.client_id = user["sub"]["id"]
+            g.client_type = user["sub"]["type"]
+        except Exception as e:
+            return False  # block connection
+
+        print("Client connected:", g.client_type, g.client_id)
         join_room(GLOBAL_ROOM)
         emit("connected", {"message": "Connected to rider namespace", "room": GLOBAL_ROOM})
 

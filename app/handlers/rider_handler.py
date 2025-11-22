@@ -11,52 +11,63 @@ from app.database.rider_models import Rider
 
 
 rider_bp = Blueprint("rider", __name__, url_prefix="/rider")
-# ------------------------
-# Register Rider (GET + POST)
-# ------------------------
-@rider_bp.route("/register", methods=["GET", "POST"])
-def register_rider():
-    if request.method == "GET":
-        # Render a simple registration form
-        return render_template("rider_register.html")
 
-    # POST - form or JSON
+@rider_bp.route("/register", methods=["POST"])
+def register_rider():
     data = request.get_json() if request.is_json else request.form
 
     phone = data.get("phone")
     email = data.get("email")
-    password = data.get("password")
+    username = data.get("username")
 
-    if not all([phone, email, password]):
-        return jsonify({"error": "Missing required fields"}), 400
+    if not any([phone, email, username]):
+        return jsonify({"error": "Provide phone, email or username"}), 400
 
-    # Check if email already exists
-    existing_user = User.query.filter_by(email=email).first()
-    if existing_user:
-        return jsonify({"error": "Email already registered"}), 400
+    # 1. CHECK IF USER ALREADY EXISTS
+    user = User.query.filter(
+        (User.phone == phone) |
+        (User.email == email) |
+        (User.username == username)
+    ).first()
 
-    # Create User
-    user = User(
-        email=email,
-        password_hash=generate_password_hash(password),
-        phone=phone,
-    )
-    db.session.add(user)
-    db.session.commit()
+    if not user:
+        return jsonify({
+            "error": "User not registered",
+            "signin_url": "https://yourapp.com/auth/register"
+        }), 404
 
-    # Create Rider
+    # 2. CHECK IF USER IS ALREADY A RIDER
+    existing_rider = Rider.query.filter_by(user_id=user.id).first()
+
+    if existing_rider:
+        token = create_access_token(identity={"id": existing_rider.id, "type": "rider"})
+        return jsonify({
+            "message": "User is already a rider",
+            "rider": {
+                "id": existing_rider.id,
+                "email": user.email,
+                "phone": user.phone
+            },
+            "token": token
+        }), 200
+
+    # 3. REGISTER AS NEW RIDER
     rider = Rider(user_id=user.id, status="active")
     db.session.add(rider)
     db.session.commit()
 
-    # Generate JWT
-    token = create_access_token(identity=user.id)
+    token = create_access_token(identity={"id": rider.id, "type": "rider"})
 
     return jsonify({
-        "message": "Rider registered successfully",
-        "rider": {"id": rider.id, "email": user.email, "phone": user.phone},
+        "message": "Rider registration successful",
+        "rider": {
+            "id": rider.id,
+            "email": user.email,
+            "phone": user.phone
+        },
         "token": token
     }), 201
+
 
 
 # ------------------------

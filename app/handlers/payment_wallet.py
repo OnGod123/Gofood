@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request, url_for
-from app.extensions import db, r
+from app.extensions import Base, r
 from app.merchants.Database.order import OrderSingle, OrderMultiple
-from app.merchants.Database$ import Vendors_payment_service
+from app.merchants.Database import Vendors_payment_service
 from app.merchants.Database.vendors_data_base import Vendor
 from app.handlers.wallet import Wallet
 from app.utils.auth import verify_jwt_token

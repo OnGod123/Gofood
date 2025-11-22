@@ -1,8 +1,9 @@
 from datetime import datetime
-from sqlalchemy import Column, Integer, ForeignKey, DateTime, JSON, Float
+from sqlalchemy import Column, String, Integer, ForeignKey, DateTime, JSON, Float
 from sqlalchemy.orm import relationship
 from app.extensions import Base
-
+from sqlalchemy.dialects.postgresql import UUID
+import uuid
 
 class Vendor_Payment(Base):
     __tablename__ = "payments"

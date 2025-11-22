@@ -12,6 +12,8 @@ class OrderSingle(Base):
     item_data = Column(JSON, nullable=False)
     total = Column(Float, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
+    vendor_name = Column(DateTime, default=datetime.utcnow)
+    product_name = Column(DateTime, default=datetime.utcnow)
 
     user = relationship("User", backref="single_orders")
 
@@ -24,6 +26,7 @@ class OrderMultiple(Base):
     items_data = Column(JSON, nullable=False)
     total = Column(Float, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
-
+    vendor_name = Column(DateTime, default=datetime.utcnow)
+    product_name = Column(DateTime, default=datetime.utcnow)
     user = relationship("User", backref="multiple_orders")
 

@@ -90,7 +90,8 @@ class FoodItem(Base):
     vendor_id = Column(Integer, ForeignKey("vendors.id"), nullable=False, index=True)
     merchant_id = Column(Integer, ForeignKey("merchants.id"), nullable=False, index=True)
 
-    name = Column(String(255), nullable=False)
+    product_name = Column(String(255), nullable=False)
+    vendor_name =  Column(String(255), nullable=False)
     description = Column(String(512), nullable=True)
     price = Column(Float, nullable=False)
     image_url = Column(String(512), nullable=True)  # path or URL to item picture

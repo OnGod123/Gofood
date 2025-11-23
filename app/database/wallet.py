@@ -14,13 +14,7 @@ class Wallet(base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     user = relationship("User", back_populates="wallet")
 
-    def credit(self, amount: float):
-        self.balance = float(self.balance) + float(amount)
-
-    def debit(self, amount: float):
-        if float(self.balance) < float(amount):
-            raise ValueError("Insufficient wallet balance")
-        self.balance = float(self.balance) - float(amount)
+    
 
 class Transaction(base):
     __tablename__ = "transactions"

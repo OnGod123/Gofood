@@ -18,14 +18,50 @@ def transfer_funds(user):
     data = request.json
     vendor_id = data.get("vendor_id")
     amount = float(data.get("amount"))
+    
     wallet = Wallet.query.filter_by(user_id=user.id).first()
     if not wallet or wallet.balance < amount:
         return jsonify({"error": "Insufficient balance"}), 400
 
-    txn = Transaction(user_id=user.id, vendor_id=vendor_id, amount=amount,
-                      type="payout", reference=str(uuid.uuid4()), status="completed")
+    # ---------------------------------------------
+    # 1. CALL PAYMENT PROCESSOR BEFORE RECORDING TXN
+    # ---------------------------------------------
+    try:
+        provider = data.get("provider", "paystack")
+
+        payout_result = process_vendor_payout(
+            user_id=user.id,
+            vendor_id=vendor_id,
+            order_id=data.get("order_id", None),
+            amount=amount,
+            provider=provider
+        )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
+    # --------------------------------------------------
+    # 2. YOUR ORIGINAL LOGIC (UNCHANGED)
+    # --------------------------------------------------
+    txn = Transaction(
+        user_id=user.id,
+        vendor_id=vendor_id,
+        amount=amount,
+        type="payout",
+        reference=str(uuid.uuid4()),
+        status="completed"
+    )
+
     wallet.balance -= amount
     db.session.add(txn)
     db.session.commit()
-    return jsonify({"status": "success", "txn_id": txn.reference})
+
+    # --------------------------------------------------
+    # 3. RETURN BOTH (YOUR RESPONSE + PAYMENT DETAILS)
+    # --------------------------------------------------
+    return jsonify({
+        "status": "success",
+        "txn_id": txn.reference,
+        "payout": payout_result
+    })
+
 

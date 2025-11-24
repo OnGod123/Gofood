@@ -1,58 +1,71 @@
-from flask import Blueprint, request, jsonify, render_template, redirect, url_for
-from app.extensions import db
-from app.merchant.Database.delivery import Delivery
-from app.merchant.Database.order import OrderSingle, OrderMultiple
-from app.utils import get_latest_order
+from flask import Blueprint, render_template, jsonify
+from app.extensions import db, socketio
+from app.merchants.Database.delivery import Delivery
+from app.merchants.Database.order import OrderSingle, OrderMultiple
+from app.database.user_models import User
 
-delivery_bp = Blueprint("delivery", __name__)
+delivery_bp = Blueprint("delivery_bp", __name__)
+GLOBAL_ROOM = "all_participants"
 
-@delivery_bp.route("/delivery", methods=["GET", "POST"])
-def delivery_handler():
-      # example; normally get from session or JWT
+def broadcast_order_to_riders(latest_order, delivery):
+    """Broadcast full order info to all riders."""
+    if not latest_order or not delivery:
+        return
 
-    if request.method == "POST":
-        user_id = session.get("user_id")
-        address = request.form.get("address") or request.json.get("address")
-        if not address:
-            return jsonify({"error": "Address required"}), 400
+    user = User.query.get(latest_order.user_id)
+    if not user:
+        return
 
-        latest_order = get_latest_order(db.session, user_id)
-        if not latest_order:
-            return jsonify({"error": "No orders found"}), 404
+    # Prepare items list for broadcasting
+    items_list = []
+    if hasattr(latest_order, "items_data") and latest_order.items_data:
+        items_list = latest_order.items_data  # Multiple items order
+    elif hasattr(latest_order, "item_data") and latest_order.item_data:
+        items_list = [latest_order.item_data]  # Single item order
 
-        delivery = Delivery(
-            user_id=user_id,
-            address=address,
-            order_single_id=getattr(latest_order, "id", None) if isinstance(latest_order, OrderSingle) else None,
-            order_multiple_id=getattr(latest_order, "id", None) if isinstance(latest_order, OrderMultiple) else None
-        )
-        db.session.add(delivery)
-        db.session.commit()
+    order_data = {
+        "order_id": latest_order.id,
+        "user_id": latest_order.user_id,
+        "user_name": getattr(user, "name", ""),
+        "user_phone": getattr(user, "phone", ""),
+        "delivery_address": getattr(delivery, "address", ""),
+        "total": getattr(latest_order, "total", 0),
+        "items": items_list,
+        "created_at": str(latest_order.created_at),
+    }
 
-        # Redirect to WebSocket bargain page
-        return redirect(url_for("delivery.bargain_page", delivery_id=delivery.id))
+    socketio.emit("latest_order", order_data, room=GLOBAL_ROOM)
 
-    # ---- GET method: show latest delivery ----
-    delivery = (
-        db.session.query(Delivery)
-        .filter_by(user_id=user_id)
-        .order_by(Delivery.created_at.desc())
+
+@delivery_bp.route("/delivery/<int:delivery_id>/bargain")
+def bargain_page(delivery_id):
+    """HTTP endpoint to view latest order and broadcast it."""
+    delivery = Delivery.query.get(delivery_id)
+    if not delivery:
+        return jsonify({"error": "Delivery not found"}), 404
+
+    # Fetch latest single and multiple orders for the delivery's user
+    latest_single_order = (
+        OrderSingle.query.filter_by(user_id=delivery.user_id)
+        .order_by(OrderSingle.created_at.desc())
+        .first()
+    )
+    latest_multiple_order = (
+        OrderMultiple.query.filter_by(user_id=delivery.user_id)
+        .order_by(OrderMultiple.created_at.desc())
         .first()
     )
 
-    if not delivery:
-        return jsonify({"message": "No deliveries yet"})
+    # Determine the latest overall order
+    latest_order = latest_single_order
+    if latest_multiple_order:
+        if not latest_single_order or latest_multiple_order.created_at > latest_single_order.created_at:
+            latest_order = latest_multiple_order
 
-    data = {
-        "id": delivery.id,
-        "address": delivery.address,
-        "status": delivery.status,
-        "delivery_fee": delivery.delivery_fee,
-        "created_at": delivery.created_at,
-    }
+    # Broadcast order data to all riders
+    broadcast_order_to_riders(latest_order, delivery)
 
-    if request.accept_mimetypes['application/json'] >= request.accept_mimetypes['text/html']:
-        return jsonify(data)
-    else:
-        return render_template("delivery.html", delivery=data)
+    # Render HTTP template with latest order info
+    return render_template("bargain.html", delivery_id=delivery_id, latest_order=latest_order)
+
 

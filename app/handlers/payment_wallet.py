@@ -12,7 +12,7 @@ import uuid
 
 wallet_payment_bp = Blueprint("wallet_payment_bp", __name__)
 
-
+@otp_request_required(context="payment", ttl=300)
 @wallet_payment_bp.route("/order/proceed-to-payment/<order_id>", methods=["POST"])
 @verify_jwt_token
 @otp_request_required(context="payment", ttl=300)

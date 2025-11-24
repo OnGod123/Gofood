@@ -26,6 +26,54 @@ def topup_view():
     # But for now just render static instructions; client will handle token and call API.
     return render_template("wallet_topup.html")
 
+@wallet_bp.route("/wallet/load", methods=["GET"])
+def load_wallet_get():
+    """
+    Initialize a wallet payment via GET request.
+    Example: /wallet/load?phone=08012345678&amount=5000&provider=monnify
+    """
+    phone = request.args.get("phone")
+    amount = request.args.get("amount")
+    provider_name = request.args.get("provider", "monnify")  # default to Monnify
+    full_name = request.args.get("full_name", phone)
+
+    if not phone or not amount:
+        return jsonify({"error": "phone and amount are required"}), 400
+
+    try:
+        amount = float(amount)
+    except ValueError:
+        return jsonify({"error": "amount must be a number"}), 400
+
+    user = User.query.filter_by(phone=phone).first()
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+
+    try:
+        provider = get_provider(provider_name)
+        payment_info = provider.initialize_payment(user, amount)
+    except Exception as e:
+        return jsonify({"error": "Payment initialization failed", "details": str(e)}), 500
+
+    # Log the transaction
+    txn = PaymentTransaction(
+        provider=provider_name,
+        provider_txn_id=payment_info["reference"],
+        amount=amount,
+        direction="in",
+        target_user_id=user.id,
+        processed=False,
+        created_at=datetime.utcnow()
+    )
+    db.session.add(txn)
+    db.session.commit()
+
+    return jsonify({
+        "message": "Payment initialized via GET",
+        "payment_link": payment_info["payment_link"],
+        "reference": payment_info["reference"]
+    }), 201
+
 
 @monnify_bp.route("/api/monnify/payment-complete", methods=["POST"])
 def monnify_payment_complete():
@@ -155,4 +203,8 @@ def monnify_payment_complete():
         "message": "Wallet credited successfully",
         "user_id": user.id,
         "wallet_balance": wallet.balance
-    }), 200
+
+}), 200
+
+
+

@@ -14,7 +14,33 @@ class Wallet(base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     user = relationship("User", back_populates="wallet")
 
+    def debit(self, amount: float):
+        if self.balance < amount:
+            raise ValueError("Insufficient wallet balance")
+        self.balance -= amount
+
+    # credit only in memory (optional)
+    def credit(self, amount: float):
+        self.balance += amount
+
     
+    @staticmethod
+    def debit_from_db(user_id: int, amount: float):
+        """
+        Atomically decrement wallet balance in DB.
+        Raises ValueError if insufficient funds.
+        """
+        wallet = Wallet.query.filter_by(user_id=user_id).with_for_update().first()
+        if not wallet:
+            raise ValueError("Wallet not found")
+        if wallet.balance < amount:
+            raise ValueError("Insufficient wallet balance")
+
+        # Deduct from DB
+        wallet.balance -= amount
+        db.session.add(wallet)
+        db.session.commit()
+        return wallet.balance
 
 class Transaction(base):
     __tablename__ = "transactions"

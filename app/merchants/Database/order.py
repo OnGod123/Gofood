@@ -14,8 +14,8 @@ class OrderSingle(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     vendor_name = Column(DateTime, default=datetime.utcnow)
     product_name = Column(DateTime, default=datetime.utcnow)
-
     user = relationship("User", backref="single_orders")
+    reciepient_address = Column(String(50), nullabe = False)
 
 
 class OrderMultiple(Base):
@@ -29,4 +29,5 @@ class OrderMultiple(Base):
     vendor_name = Column(DateTime, default=datetime.utcnow)
     product_name = Column(DateTime, default=datetime.utcnow)
     user = relationship("User", backref="multiple_orders")
+    reciepient_address = Column(String(50), nullabe = False)
 

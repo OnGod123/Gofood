@@ -22,6 +22,8 @@ class Wallet(base):
     # credit only in memory (optional)
     def credit(self, amount: float):
         self.balance += amount
+        db.commit()          
+        db.refresh(self)
 
     
     @staticmethod
@@ -52,3 +54,105 @@ class Transaction(base):
     reference = Column(String(128), unique=True)
     status = Column(String(32), default="pending")
     created_at = Column(DateTime, default=datetime.utcnow)
+
+
+    @classmethod
+def process_vendor_payout(cls, *, user_id: int, vendor_id: int, amount: float):
+    """
+    Try Paystack → Flutterwave → Monnify.
+    If ANY provider succeeds:
+        - Debit user's wallet
+        - Mark transaction as completed
+    If all fail:
+        - Transaction stays failed
+    """
+
+    vendor = Vendor.query.get(vendor_id)
+    if not vendor:
+        return {"error": "Vendor not found"}
+
+    reference = f"TRX-{uuid.uuid4().hex[:12]}"
+    tx = cls(
+        user_id=user_id,
+        vendor_id=vendor_id,
+        amount=amount,
+        type="vendor_payout",
+        status="processing",
+        reference=reference,
+    )
+    db.session.add(tx)
+    db.session.commit()
+
+    providers = ["paystack", "flutterwave", "monnify"]
+
+    provider_response = None
+    provider_used = None
+
+    for provider in providers:
+        try:
+            if provider == "paystack":
+                provider_response = paystack_charge_bank(
+                    email=vendor.email,
+                    amount=amount,
+                    bank_code=vendor.bank_code,
+                    account_number=vendor.bank_account,
+                )
+
+            elif provider == "flutterwave":
+                provider_response = flutterwave_charge_bank(
+                    tx_ref=reference,
+                    amount=amount,
+                    bank_code=vendor.bank_code,
+                    account_number=vendor.bank_account,
+                    email=vendor.email,
+                )
+
+            elif provider == "monnify":
+                provider_response = monnify_charge(
+                    account_number=vendor.bank_account,
+                    bank_code=vendor.bank_code,
+                    amount=amount,
+                    customer_name=vendor.name,
+                    customer_email=vendor.email,
+                )
+
+            provider_used = provider
+            break  # SUCCESS → stop loop
+
+        except Exception:
+            continue  
+
+    if not provider_used:
+        tx.status = "failed"
+        db.session.commit()
+
+        return {
+            "error": "All payout providers failed. Possibly insufficient funds.",
+            "reference": reference,
+        }
+
+    try:
+        new_balance = Wallet.debit_from_db(user_id=user_id, amount=amount)
+    except Exception as e:
+        # Wallet debit failed: mark payout as failed
+        tx.status = "failed"
+        db.session.commit()
+
+        return {
+            "error": "Wallet debit failed after payout.",
+            "reference": reference,
+            "details": str(e),
+        }
+
+    tx.status = "completed"
+    db.session.commit()
+
+    return {
+        "status": "success",
+        "provider": provider_used,
+        "reference": reference,
+        "amount": amount,
+        "provider_response": provider_response,
+        "wallet_balance": new_balance,
+    }
+

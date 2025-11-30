@@ -35,7 +35,7 @@ class CentralAccount(base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 
-class PaymentTransaction(base):
+class Payment_API_database_Transaction(base):
     """
     Authoritative transaction log for monies flowing into central account,
     distributions to users, and payouts to vendors.

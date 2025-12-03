@@ -54,7 +54,7 @@ class Payment_API_database_Transaction(base):
     processed = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     processed_at = Column(DateTime, nullable=True)
-
     central_account = relationship("CentralAccount", backref="transactions")
     user = relationship("User")
+    verified_payment = Column(Boolean, default=False)
 

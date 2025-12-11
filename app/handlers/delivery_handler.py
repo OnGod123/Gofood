@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, jsonify
-from app.extensions import db, socketio
+from flask import Blueprint, render_template, request, jsonify
+from app.extensions import db, socketio, geolocator
 from app.merchants.Database.delivery import Delivery
 from app.merchants.Database.order import OrderSingle, OrderMultiple
 from app.database.user_models import User
@@ -7,8 +7,9 @@ from app.database.user_models import User
 delivery_bp = Blueprint("delivery_bp", __name__)
 GLOBAL_ROOM = "all_participants"
 
-def broadcast_order_to_riders(latest_order, delivery):
-    """Broadcast full order info to all riders."""
+
+def broadcast_order_to_riders(latest_order, delivery, extra_address_info=None):
+    """Broadcast full order info to all riders, including address info."""
     if not latest_order or not delivery:
         return
 
@@ -16,12 +17,11 @@ def broadcast_order_to_riders(latest_order, delivery):
     if not user:
         return
 
-    # Prepare items list for broadcasting
     items_list = []
     if hasattr(latest_order, "items_data") and latest_order.items_data:
-        items_list = latest_order.items_data  # Multiple items order
+        items_list = latest_order.items_data
     elif hasattr(latest_order, "item_data") and latest_order.item_data:
-        items_list = [latest_order.item_data]  # Single item order
+        items_list = [latest_order.item_data]
 
     order_data = {
         "order_id": latest_order.id,
@@ -34,38 +34,85 @@ def broadcast_order_to_riders(latest_order, delivery):
         "created_at": str(latest_order.created_at),
     }
 
+    if extra_address_info:
+        order_data.update(extra_address_info)
+
     socketio.emit("latest_order", order_data, room=GLOBAL_ROOM)
 
 
-@delivery_bp.route("/delivery/<int:delivery_id>/bargain")
-def bargain_page(delivery_id):
-    """HTTP endpoint to view latest order and broadcast it."""
+@delivery_bp.route("/delivery/<int:order_id>/location", methods=["GET", "POST"])
+def manage_delivery_location(delivery_id):
+    """GET: render delivery info page; POST: update delivery address and broadcast."""
     delivery = Delivery.query.get(delivery_id)
     if not delivery:
         return jsonify({"error": "Delivery not found"}), 404
 
-    # Fetch latest single and multiple orders for the delivery's user
-    latest_single_order = (
-        OrderSingle.query.filter_by(user_id=delivery.user_id)
-        .order_by(OrderSingle.created_at.desc())
-        .first()
-    )
-    latest_multiple_order = (
-        OrderMultiple.query.filter_by(user_id=delivery.user_id)
-        .order_by(OrderMultiple.created_at.desc())
-        .first()
-    )
+    # --- GET REQUEST ---
+    if request.method == "GET":
+        # Get latest order for rendering
+        latest_single = OrderSingle.query.filter_by(user_id=delivery.user_id)\
+            .order_by(OrderSingle.created_at.desc()).first()
+        latest_multiple = OrderMultiple.query.filter_by(user_id=delivery.user_id)\
+            .order_by(OrderMultiple.created_at.desc()).first()
+        latest_order = latest_single
+        if latest_multiple and (not latest_single or latest_multiple.created_at > latest_single.created_at):
+            latest_order = latest_multiple
 
-    # Determine the latest overall order
-    latest_order = latest_single_order
-    if latest_multiple_order:
-        if not latest_single_order or latest_multiple_order.created_at > latest_single_order.created_at:
-            latest_order = latest_multiple_order
+        return render_template(
+            "bargain.html",
+            delivery_id=delivery.id,
+            latest_order=latest_order,
+            delivery_address=delivery.address
+        )
 
-    # Broadcast order data to all riders
-    broadcast_order_to_riders(latest_order, delivery)
+    # --- POST REQUEST ---
+    data = request.get_json() or {}
+    mode = data.get("mode")
+    extra_info = {"mode": mode}
 
-    # Render HTTP template with latest order info
-    return render_template("bargain.html", delivery_id=delivery_id, latest_order=latest_order)
+    if mode == "manual":
+        address = data.get("address")
+        if not address:
+            return jsonify({"error": "Missing address"}), 400
+        delivery.address = address
+        extra_info["resolved_address"] = address
+        db.session.commit()
+
+    elif mode == "auto":
+        lat = data.get("latitude")
+        lng = data.get("longitude")
+        if not lat or not lng:
+            return jsonify({"error": "Missing coordinates"}), 400
+
+        location = geolocator.reverse(f"{lat}, {lng}", language="en")
+        if not location:
+            return jsonify({"error": "Could not resolve address"}), 400
+
+        delivery.address = location.address
+        extra_info["latitude"] = lat
+        extra_info["longitude"] = lng
+        extra_info["resolved_address"] = location.address
+        db.session.commit()
+
+    else:
+        return jsonify({"error": "Invalid mode"}), 400
+
+    # Get latest order
+    latest_single = OrderSingle.query.filter_by(user_id=delivery.user_id)\
+        .order_by(OrderSingle.created_at.desc()).first()
+    latest_multiple = OrderMultiple.query.filter_by(user_id=delivery.user_id)\
+        .order_by(OrderMultiple.created_at.desc()).first()
+    latest_order = latest_single
+    if latest_multiple and (not latest_single or latest_multiple.created_at > latest_single.created_at):
+        latest_order = latest_multiple
+
+    # Broadcast updated order + address
+    broadcast_order_to_riders(latest_order, delivery, extra_address_info=extra_info)
+
+    return jsonify({
+        "status": "success",
+        "address": delivery.address,
+        "extra_info": extra_info
+    })
 
 
